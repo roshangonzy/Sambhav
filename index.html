@@ -1,0 +1,406 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.3">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;ICSE Class 10 Physics Learning Quiz&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>:root {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--primary: #2563eb;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--primary-hover: #1d4ed8;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--bg-color: #f8fafc;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--card-bg: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--text-main: #1e293b;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--text-muted: #64748b;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--success: #16a34a;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--danger: #dc2626;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--border: #e2e8f0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--bg-color);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--text-main);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.6;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.container {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-width: 900px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.header {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Navigation / Toggles */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.nav-tabs {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-wrap: wrap;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.nav-btn {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 10px 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--card-bg);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 2px solid var(--border);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--text-muted);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.2s ease;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.nav-btn.active {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--primary);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-color: var(--primary);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Screens */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.screen {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: var(--card-bg);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.screen.active {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Questions */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.question-block {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 25px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 1px solid var(--border);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.question-block:last-child {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: none;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.question-text {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.1rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.options-grid {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: grid;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>grid-template-columns: 1fr;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.option-label {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid var(--border);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: background 0.2s;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.option-label:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #f1f5f9;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.option-label input {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-right: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: scale(1.2);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Buttons */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.action-btn {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--primary);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.1rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.action-btn:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--primary-hover);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Report &amp; Review Elements */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.report-header {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: space-between;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 2px solid var(--border);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.score-card {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #f0fdf4;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #bbf7d0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.score-card h2 {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--success);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 2rem;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.review-item {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-left: 5px solid transparent;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #f8fafc;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.review-item.correct { border-left-color: var(--success); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.review-item.incorrect { border-left-color: var(--danger); }</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.correct-text { color: var(--success); font-weight: bold; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.incorrect-text { color: var(--danger); font-weight: bold; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.explanation {<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 10px;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.95rem;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #475569;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #e2e8f0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;div class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h1&gt;ICSE Class 10 Physics Quiz&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Select a chapter below. Answer all questions to view your learning report.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="nav-tabs" id="nav-tabs"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="nav-btn active" onclick="switchTab('ch1')"&gt;Chapter 1: Force&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="nav-btn" onclick="switchTab('ch2')"&gt;Chapter 2: Work, Energy &amp; Power&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="nav-btn" onclick="switchTab('ch3')"&gt;Chapter 3: Machines&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="ch1" class="screen active"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="ch1-questions"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="action-btn" onclick="submitQuiz('ch1')"&gt;Submit Chapter 1 Quiz&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="ch2" class="screen"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="ch2-questions"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="action-btn" onclick="submitQuiz('ch2')"&gt;Submit Chapter 2 Quiz&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="ch3" class="screen"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="ch3-questions"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="action-btn" onclick="submitQuiz('ch3')"&gt;Submit Chapter 3 Quiz&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="report-screen" class="screen"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="report-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="action-btn" onclick="exportPDF()" style="background-color: #0f172a; margin-top: 10px;"&gt;Export Report as PDF&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="action-btn" onclick="resetQuizzes()" style="background-color: #64748b; margin-top: 10px;"&gt;Retake Quizzes&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// --- QUIZ DATA ---</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Note: I have included 5 questions per chapter. Add more objects to the arrays to reach 40.</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const quizData = {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>ch1: {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>title: "Chapter 1: Force",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>questions: [</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ q: "What is the S.I. unit of moment of force?", options: ["N", "N m", "kg m/s", "Joule"], ans: 1, exp: "Moment of force is Force multiplied by perpendicular distance. Hence, Newton meter (N m)." },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ q: "Where does the centre of gravity of a uniform circular ring lie?", options: ["On its circumference", "Outside the ring", "At its centre", "Varies depending on mass"], ans: 2, exp: "For a uniform symmetrical body, the centre of gravity lies at its geometric centre." },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ q: "A couple produces:", options: ["Purely translational motion", "Purely rotational motion", "Both translational and rotational", "No motion"], ans: 1, exp: "Two equal and opposite forces not acting along the same line form a couple, which only causes rotation." },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ q: "In uniform circular motion, the quantity that remains constant is:", options: ["Velocity", "Acceleration", "Speed", "Momentum"], ans: 2, exp: "Direction changes continuously, so velocity and momentum change. Only the magnitude (speed) remains constant." },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ q: "Centripetal force acts:", options: ["Away from the centre", "Towards the centre", "Tangential to the path", "Perpendicular to the plane of motion"], ans: 1, exp: "Centripetal force is always directed towards the centre of the circular path." }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>]</p>
+<p class="p1"><span class="Apple-converted-space">        </span>},</p>
+<p class="p1"><span class="Apple-converted-space">        </span>ch2: {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>title: "Chapter 2: Work, Energy and Power",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>questions: [</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ q: "1 kWh is equal to:", options: ["3.6 x 10^5 J", "3.6 x 10^6 J", "3.6 x 10^3 J", "3.6 J"], ans: 1, exp: "1 kW = 1000 W and 1 h = 3600 s. 1000 W x 3600 s = 3,600,000 J or 3.6 x 10^6 J." },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ q: "Work done by a force is zero if the angle between force and displacement is:", options: ["0 degrees", "45 degrees", "90 degrees", "180 degrees"], ans: 2, exp: "W = F d cos(theta). Since cos(90) = 0, work done is zero." },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ q: "The energy possessed by a body due to its position is called:", options: ["Kinetic Energy", "Potential Energy", "Mechanical Energy", "Thermal Energy"], ans: 1, exp: "Potential energy is the stored energy of position (e.g., mgh for gravitational potential energy)." },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ q: "According to the principle of conservation of energy, the total mechanical energy of a free-falling body:", options: ["Increases", "Decreases", "Remains constant", "Becomes zero"], ans: 2, exp: "As PE decreases, KE increases by an equal amount, keeping total mechanical energy constant." },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ q: "Power is defined as:", options: ["Rate of doing work", "Capacity to do work", "Force x Distance", "Mass x Acceleration"], ans: 0, exp: "Power = Work done / time taken." }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>]</p>
+<p class="p1"><span class="Apple-converted-space">        </span>},</p>
+<p class="p1"><span class="Apple-converted-space">        </span>ch3: {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>title: "Chapter 3: Machines",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>questions: [</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ q: "For an ideal machine, the efficiency is:", options: ["Less than 100%", "Exactly 100%", "More than 100%", "0%"], ans: 1, exp: "An ideal machine has no friction or weight of moving parts, so Work Output = Work Input." },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ q: "The mechanical advantage (M.A.) of a single fixed pulley is:", options: ["2", "1", "0.5", "Depends on load"], ans: 1, exp: "A single fixed pulley only changes the direction of force; it does not multiply force." },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ q: "The relation between M.A., V.R., and Efficiency (η) is:", options: ["M.A. = V.R. / η", "η = M.A. x V.R.", "M.A. = η x V.R.", "V.R. = η x M.A."], ans: 2, exp: "Efficiency is the ratio of Mechanical Advantage to Velocity Ratio (η = M.A. / V.R.)." },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ q: "In a class II lever, the Mechanical Advantage is always:", options: ["Greater than 1", "Less than 1", "Equal to 1", "Zero"], ans: 0, exp: "In Class II levers, the load is between the fulcrum and effort, making the effort arm always longer than the load arm." },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ q: "A block and tackle system has 4 pulleys. Its Velocity Ratio (V.R.) is:", options: ["2", "4", "8", "16"], ans: 1, exp: "The velocity ratio of a block and tackle system is equal to the total number of pulleys in the system." }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>]</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>let userAnswers = { ch1: {}, ch2: {}, ch3: {} };</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// --- INITIALIZATION ---</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function renderQuestions() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>['ch1', 'ch2', 'ch3'].forEach(ch =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const container = document.getElementById(`${ch}-questions`);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>container.innerHTML = ''; // Clear existing</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>quizData[ch].questions.forEach((qObj, index) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const qDiv = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>qDiv.className = 'question-block';</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>let optionsHTML = '';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>qObj.options.forEach((opt, optIndex) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>optionsHTML += `</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label class="option-label"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;input type="radio" name="${ch}-q${index}" value="${optIndex}"<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                            </span>onchange="saveAnswer('${ch}', ${index}, ${optIndex})"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>${opt}</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>qDiv.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="question-text"&gt;Q${index + 1}. ${qObj.q}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="options-grid"&gt;${optionsHTML}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>container.appendChild(qDiv);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// --- NAVIGATION ---</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function switchTab(targetId) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Update Buttons</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.querySelectorAll('.nav-btn').forEach(btn =&gt; btn.classList.remove('active'));</p>
+<p class="p1"><span class="Apple-converted-space">        </span>event.target.classList.add('active');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Update Screens</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.querySelectorAll('.screen').forEach(screen =&gt; screen.classList.remove('active'));</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById(targetId).classList.add('active');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// --- LOGIC ---</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function saveAnswer(chapter, questionIndex, optionIndex) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>userAnswers[chapter][questionIndex] = optionIndex;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function submitQuiz(chapter) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const totalQ = quizData[chapter].questions.length;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const answeredQ = Object.keys(userAnswers[chapter]).length;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (answeredQ &lt; totalQ) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>alert(`Please answer all questions before submitting. You have answered ${answeredQ} out of ${totalQ}.`);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>generateReport(chapter);</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Hide tabs, show report</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('nav-tabs').style.display = 'none';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.querySelectorAll('.screen').forEach(screen =&gt; screen.classList.remove('active'));</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('report-screen').classList.add('active');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function generateReport(chapter) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const reportContainer = document.getElementById('report-content');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const data = quizData[chapter];</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let score = 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let reviewHTML = '';</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>data.questions.forEach((qObj, index) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const userAns = userAnswers[chapter][index];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const isCorrect = userAns === qObj.ans;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (isCorrect) score++;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>reviewHTML += `</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="review-item ${isCorrect ? 'correct' : 'incorrect'}"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="question-text"&gt;Q${index + 1}. ${qObj.q}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p&gt;Your Answer: &lt;span class="${isCorrect ? 'correct-text' : 'incorrect-text'}"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>${qObj.options[userAns]}</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>${!isCorrect ? `&lt;p&gt;Correct Answer: &lt;span class="correct-text"&gt;${qObj.options[qObj.ans]}&lt;/span&gt;&lt;/p&gt;` : ''}</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="explanation"&gt;&lt;strong&gt;Learning Note:&lt;/strong&gt; ${qObj.exp}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>reportContainer.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="report-header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2&gt;Performance Report: ${data.title}&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;Date: ${new Date().toLocaleDateString()}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="score-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3&gt;Total Marks Obtained&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2&gt;${score} / ${data.questions.length}&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3&gt;Detailed Review&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>${reviewHTML}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function resetQuizzes() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>userAnswers = { ch1: {}, ch2: {}, ch3: {} };</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.querySelectorAll('input[type="radio"]').forEach(radio =&gt; radio.checked = false);</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('nav-tabs').style.display = 'flex';</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Switch back to Ch1</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.querySelectorAll('.nav-btn')[0].click();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function exportPDF() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const element = document.getElementById('report-content');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const opt = {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: <span class="Apple-converted-space">      </span>10,</p>
+<p class="p1"><span class="Apple-converted-space">            </span>filename: <span class="Apple-converted-space">    </span>'Physics_Quiz_Report.pdf',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>image:<span class="Apple-converted-space">        </span>{ type: 'jpeg', quality: 0.98 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>html2canvas:<span class="Apple-converted-space">  </span>{ scale: 2 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>jsPDF:<span class="Apple-converted-space">        </span>{ unit: 'mm', format: 'a4', orientation: 'portrait' }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};</p>
+<p class="p1"><span class="Apple-converted-space">        </span>html2pdf().set(opt).from(element).save();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Initialize the app</p>
+<p class="p1"><span class="Apple-converted-space">    </span>window.onload = renderQuestions;</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
