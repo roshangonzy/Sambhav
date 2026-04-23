@@ -3,10 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chemical Bonding - Intensive Masterclass | Logic League</title>
+    <title>Practice Paper 1 Module 1 | Logic League</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        primary: { 400: '#60a5fa', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8' },
+                    }
+                }
+            }
+        }
+    </script>
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -17,7 +29,6 @@
     <!-- KaTeX for Math & Chemistry Rendering -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-    <!-- mhchem extension for \ce{} chemistry formulas -->
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/mhchem.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
     
@@ -35,20 +46,6 @@
 
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
-        
-        /* Modular Content Styles */
-        .content-text { color: #334155; font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.25rem; }
-        .content-text strong { color: #0f172a; }
-        
-        .content-math { background-color: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 1.5rem; margin: 1.5rem 0; text-align: center; font-size: 1.25rem; overflow-x: auto; box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05); }
-        
-        .content-tip { background-color: #fffbeb; border-left: 4px solid #f59e0b; border-radius: 0 0.75rem 0.75rem 0; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); position: relative; }
-        
-        .content-pyq { background-color: #f0fdfa; border: 1px solid #5eead4; border-radius: 0.75rem; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1); position: relative; }
-        
-        .block-tag { position: absolute; top: -10px; right: 16px; font-size: 0.65rem; font-weight: 800; padding: 2px 10px; border-radius: 9999px; text-transform: uppercase; letter-spacing: 0.05em; }
-
-        /* Custom styling for interactive quiz blocks */
         details > summary { list-style: none; outline: none; }
         details > summary::-webkit-details-marker { display: none; }
     </style>
@@ -57,13 +54,13 @@
 
     <!-- Top Navigation Bar -->
     <nav class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
-                <a href="index.html" class="flex items-center text-slate-500 hover:text-fuchsia-600 font-semibold transition-colors">
-                    <i class="ph-bold ph-arrow-left mr-2"></i> Back to Hub
-                </a>
                 <div class="font-extrabold text-xl tracking-tight text-slate-900 flex items-center">
-                    L<i class="ph-fill ph-gear text-fuchsia-600 mx-0.5 animate-[spin_4s_linear_infinite]"></i>gic&nbsp;<span class="text-fuchsia-600">League</span>
+                    L<i class="ph-fill ph-gear text-fuchsia-600 mx-0.5"></i>gic&nbsp;<span class="text-fuchsia-600">League</span>
+                </div>
+                <div class="text-sm font-semibold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">
+                    Assessment Module
                 </div>
             </div>
         </div>
@@ -72,530 +69,318 @@
     <!-- Main Content Area -->
     <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
         
-        <!-- Header -->
-        <header class="mb-10 text-center border-b border-slate-200 pb-8">
-            <div class="inline-flex items-center bg-fuchsia-100 text-fuchsia-700 font-bold px-3 py-1 rounded-full text-xs mb-4 tracking-widest uppercase">
-                <i class="ph-fill ph-chalkboard-teacher mr-1.5 text-base"></i> Intensive Masterclass
-            </div>
-            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">Chemical Bonding</h1>
-            <p class="text-lg text-slate-500 font-medium">The Ultimate ICSE Grade 10 Comprehensive Guide</p>
-        </header>
-
-        <!-- ========================================== -->
-        <!-- CORE FUNDAMENTALS                          -->
-        <!-- ========================================== -->
-        <section class="mb-16">
-            <h2 class="text-2xl font-bold text-slate-800 border-b-2 border-slate-100 pb-2 mb-6 flex items-center">
-                <div class="bg-blue-100 p-2 rounded-lg mr-3"><i class="ph-fill ph-target text-blue-600"></i></div>
-                Part 0: Why Do Atoms Bond?
-            </h2>
-
-            <div class="content-text">
-                <p>Welcome to the foundation of Chemistry, Sambhav. If you want to understand how the entire universe is constructed, you must first understand why atoms combine. In the universe, everything strives for a state of minimum energy and maximum stability.</p>
-                
-                <p>For atoms, true stability means having a <strong>fully packed outermost electron shell</strong> (the valence shell). When an atom's outermost shell is full, it becomes highly unreactive and stable. We look to the <strong>Noble Gases</strong> (Group 18 of the periodic table, like Helium, Neon, and Argon) as the gold standard of atomic stability because they naturally possess full outer shells.</p>
-                
-                <ul class="list-disc pl-8 mb-4 space-y-2">
-                    <li><strong>The Duplet Rule:</strong> Achieving exactly 2 electrons in the outermost shell. This rule primarily applies to elements very close to Helium (like Hydrogen and Lithium), which only have a single K-shell that maxes out at 2 electrons.</li>
-                    <li><strong>The Octet Rule:</strong> Achieving exactly 8 electrons in the outermost shell. This applies to almost all other elements (like Oxygen, Carbon, Chlorine). Having 8 valence electrons makes them stable like Neon or Argon.</li>
-                </ul>
-                
-                <p>Because most atoms in nature do not naturally have 8 valence electrons (they might have 1, or 4, or 7), they are inherently unstable and agitated. To achieve this "Noble Gas Configuration", atoms are forced to interact with each other. To get those magic 8 electrons, they will either <strong>lose, gain, or share</strong> electrons. This interaction, this "glue" that forms between them as a result of electron movement, is what we call a <strong>Chemical Bond</strong>.</p>
-            </div>
-
-            <div class="content-tip">
-                <div class="block-tag bg-amber-200 text-amber-800 border border-amber-300">Definition Focus</div>
-                <h4 class="font-bold text-amber-900 mb-1 flex items-center">
-                    <i class="ph-fill ph-lightbulb mr-2 text-xl text-amber-500"></i> Chemical Bond
-                </h4>
-                <p class="text-sm text-amber-800">A chemical bond is defined as the force of attraction that holds two or more atoms together as a single entity (forming a molecule or an ionic compound) to achieve a stable electronic configuration.</p>
-            </div>
-
-            <!-- Self-Assessment: Part 0 -->
-            <div class="bg-indigo-50 border border-indigo-100 p-6 rounded-xl mt-8">
-                <h4 class="font-bold text-indigo-900 mb-4 flex items-center">
-                    <i class="ph-fill ph-brain text-indigo-500 mr-2 text-xl"></i> Quick Check: Fundamentals
-                </h4>
-                
-                <div class="space-y-4">
-                    <!-- Q1 -->
-                    <div class="bg-white p-4 rounded-lg border border-indigo-100 shadow-sm">
-                        <p class="font-medium text-slate-800 mb-2">1. Why are Noble Gases chemically inert (unreactive)?</p>
-                        <details class="group">
-                            <summary class="cursor-pointer text-sm font-bold text-indigo-600 hover:text-indigo-700 flex items-center select-none"><i class="ph-bold ph-caret-right mr-1 transition-transform group-open:rotate-90"></i> View Answer</summary>
-                            <div class="mt-3 p-3 bg-slate-50 rounded-md text-sm text-slate-700 border border-slate-200">
-                                Noble gases already possess a stable electronic configuration. Their outermost shell is completely filled (satisfying either the duplet rule for Helium or the octet rule for the rest), meaning they do not need to lose, gain, or share electrons.
-                            </div>
-                        </details>
+        <section id="practice-paper">
+            <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
+                <div>
+                    <div class="inline-flex items-center bg-fuchsia-100 text-fuchsia-700 font-bold px-3 py-1 rounded-full text-xs mb-3 tracking-widest uppercase">
+                        <i class="ph-fill ph-exam mr-1.5 text-base"></i> Official Mock Test
                     </div>
-
-                    <!-- Q2 -->
-                    <div class="bg-white p-4 rounded-lg border border-indigo-100 shadow-sm">
-                        <p class="font-medium text-slate-800 mb-2">2. What are the three primary ways an unstable atom can achieve an octet?</p>
-                        <details class="group">
-                            <summary class="cursor-pointer text-sm font-bold text-indigo-600 hover:text-indigo-700 flex items-center select-none"><i class="ph-bold ph-caret-right mr-1 transition-transform group-open:rotate-90"></i> View Answer</summary>
-                            <div class="mt-3 p-3 bg-slate-50 rounded-md text-sm text-slate-700 border border-slate-200">
-                                An atom can achieve a stable octet by: <br>1. Losing one or more electrons.<br>2. Gaining one or more electrons.<br>3. Mutually sharing one or more pairs of electrons with another atom.
-                            </div>
-                        </details>
-                    </div>
+                    <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 flex items-center">
+                        Practice Paper 1 Module 1
+                    </h1>
+                </div>
+                <div class="bg-slate-900 text-white font-bold px-5 py-3 rounded-xl text-lg text-center shrink-0 shadow-md">
+                    Total: 40 Marks
                 </div>
             </div>
-        </section>
-
-
-        <!-- ========================================== -->
-        <!-- TIME BLOCK 1: ELECTROVALENT BONDS          -->
-        <!-- ========================================== -->
-        <section class="mb-16">
-            <h2 class="text-2xl font-bold text-slate-800 border-b-2 border-slate-100 pb-2 mb-6 flex items-center">
-                <div class="bg-violet-100 p-2 rounded-lg mr-3"><i class="ph-fill ph-atom text-violet-600"></i></div>
-                Part 1: Electrovalent (Ionic) Bonding
-            </h2>
-
-            <div class="content-text">
-                <p>Electrovalent bonding (also known as Ionic bonding) is the chemistry of extremes. It occurs exclusively between a <strong>Metal</strong> (which has 1, 2, or 3 valence electrons) and a <strong>Non-Metal</strong> (which has 5, 6, or 7 valence electrons).</p>
-                
-                <p>Because the metal desperately wants to get rid of its extra electrons to reveal the full shell underneath, and the non-metal desperately wants to grab extra electrons to fill its current shell, a <strong>complete transfer</strong> of one or more valence electrons takes place.</p>
-                
-                <ul class="list-disc pl-8 mb-4 space-y-2">
-                    <li><strong>The Metal Atom:</strong> Loses electrons. In chemistry, the loss of electrons is called <em>Oxidation</em>. By losing negatively charged electrons, the atom is left with more positive protons than negative electrons. It becomes a positively charged ion, known as a <strong>Cation</strong>.</li>
-                    <li><strong>The Non-Metal Atom:</strong> Gains electrons. The gain of electrons is called <em>Reduction</em>. By gaining extra negative charge, it becomes a negatively charged ion, known as an <strong>Anion</strong>.</li>
-                </ul>
-                
-                <p>Now, according to the fundamental laws of physics, opposite charges attract. The newly formed Cation ($+$) and Anion ($-$) are pulled towards each other by a massive, invisible magnetic-like force. This <strong>strong electrostatic force of attraction</strong> that locks these ions together is the Ionic Bond.</p>
-                
-                <p><strong>Note:</strong> <em>Electrovalency</em> is the specific number of electrons an atom loses or gains to form this bond. For example, Sodium loses 1 electron, so its electrovalency is $+1$. Oxygen gains 2 electrons, so its electrovalency is $-2$.</p>
-            </div>
-
-            <!-- Conditions for Formation -->
-            <div class="bg-slate-50 border border-slate-200 p-6 rounded-xl mb-6 shadow-sm">
-                <h4 class="font-bold text-slate-800 mb-3 text-lg">Crucial Conditions for Formation of an Ionic Bond:</h4>
-                <p class="text-slate-600 mb-4 text-sm">ICSE frequently asks for these three conditions. You must understand <em>why</em> they are required:</p>
-                <ol class="list-decimal pl-6 space-y-3 text-slate-700">
-                    <li><strong>Low Ionisation Potential (IP) of the metal:</strong> Ionisation Potential is the energy required to rip an electron away from an atom. For an ionic bond to form easily, the metal must have a low IP, meaning it surrenders its valence electrons willingly without requiring massive amounts of heat or energy.</li>
-                    <li><strong>High Electron Affinity (EA) of the non-metal:</strong> Electron Affinity is the energy released when an atom accepts an electron. The non-metal must have a high EA, meaning it aggressively grabs the incoming electron and releases a lot of stabilizing energy in the process.</li>
-                    <li><strong>Large Electronegativity (EN) difference:</strong> Electronegativity is an atom's pulling power on electrons. For a complete transfer to happen (instead of sharing), one atom (the non-metal) must be significantly stronger at pulling electrons than the other (the metal).</li>
-                </ol>
-            </div>
-
-            <div class="content-tip">
-                <div class="block-tag bg-amber-200 text-amber-800 border border-amber-300">ICSE Board Trap</div>
-                <h4 class="font-bold text-amber-900 mb-1 flex items-center">
-                    <i class="ph-fill ph-warning-circle mr-2 text-xl text-amber-500"></i> The Brackets & Charges Rule
-                </h4>
-                <p class="text-sm text-amber-800">When asked to draw the electron dot structure (Lewis structure) for an electrovalent compound, you <strong>MUST</strong> use square brackets $[ \ ]$ around the final products and write the net charge ($+, -, 2+, 2-$) outside the top right corner. The non-metal must show all 8 electrons inside its bracket. If you draw the dots but forget the brackets and charges, examiners will give you ZERO marks, because without charges, it's not an ion!</p>
-            </div>
-
-            <hr class="my-8 border-slate-200">
-
-            <h3 class="text-2xl font-bold text-slate-800 mb-6">Deep Dive: The 3 Standard ICSE Examples</h3>
-
-            <div class="content-text font-bold text-xl mt-8 text-violet-700 border-b pb-2">Example 1: Formation of Sodium Chloride (NaCl)</div>
-            <div class="content-text">
-                <p>Sodium (Na, Atomic No. 11) has an electronic configuration of $2,8,1$. Chlorine (Cl, Atomic No. 17) has an electronic configuration of $2,8,7$.</p>
-                <p>Sodium is unstable with its 1 extra valence electron. Chlorine is frustrated because it is just 1 electron short of an octet. Sodium undergoes oxidation, transferring its 1 electron entirely to Chlorine. Sodium becomes $Na^+$ (now a stable $2,8$), and Chlorine becomes $Cl^-$ (now a stable $2,8,8$).</p>
-            </div>
-            <div class="content-math">
-                $$ \ce{Na (2,8,1) -> Na^+ (2,8) + 1e^-} $$
-                $$ \ce{Cl (2,8,7) + 1e^- -> Cl^- (2,8,8)} $$
-            </div>
-
-            <div class="content-text font-bold text-xl mt-10 text-violet-700 border-b pb-2">Example 2: Formation of Magnesium Chloride (MgCl₂)</div>
-            <div class="content-text">
-                <p>Magnesium (Mg, Atomic No. 12) has a configuration of $2,8,2$. It must lose <strong>2</strong> electrons to achieve stability. However, a single Chlorine atom ($2,8,7$) only has room to accept <strong>1</strong> electron.</p>
-                <p>The solution? One Magnesium atom invites <em>two separate</em> Chlorine atoms to the reaction. Magnesium gives 1 electron to the first Chlorine, and 1 electron to the second Chlorine. Magnesium becomes $Mg^{2+}$, and two separate Chloride ions ($Cl^-$) are formed.</p>
-            </div>
-            <div class="content-math">
-                $$ \ce{Mg (2,8,2) -> Mg^{2+} (2,8) + 2e^-} $$
-                $$ \ce{2Cl (2,8,7) + 2e^- -> 2Cl^- (2,8,8)} $$
-            </div>
-
-            <div class="content-text font-bold text-xl mt-10 text-violet-700 border-b pb-2">Example 3: Formation of Calcium Oxide (CaO)</div>
-            <div class="content-text">
-                <p>Calcium (Ca, Atomic No. 20) is $2,8,8,2$. It needs to lose 2 electrons. Oxygen (O, Atomic No. 8) is $2,6$. It conveniently needs exactly 2 electrons to reach an octet.</p>
-                <p>A direct, complete transfer occurs. Calcium transfers both of its valence electrons directly to a single Oxygen atom. Calcium becomes $Ca^{2+}$, and Oxygen becomes an Oxide ion, $O^{2-}$. Because the charges are double that of NaCl, the electrostatic pull holding CaO together is incredibly strong.</p>
-            </div>
-            <div class="content-math">
-                $$ \ce{Ca (2,8,8,2) -> Ca^{2+} (2,8,8) + 2e^-} $$
-                $$ \ce{O (2,6) + 2e^- -> O^{2-} (2,8)} $$
-            </div>
-
-            <div class="content-pyq mt-10">
-                <div class="block-tag bg-teal-200 text-teal-900 border border-teal-300">ICSE 2017</div>
-                <h4 class="font-bold text-teal-900 mb-2 flex items-center">
-                    <i class="ph-fill ph-exam mr-2 text-xl text-teal-600"></i> Past Year Question
-                </h4>
-                <p class="text-teal-800 font-medium">An element X has atomic number 19. An element Y has atomic number 8. What is the formula of the compound formed between X and Y? What type of bond is formed? [2 Marks]</p>
-                <details class="mt-3 group/ans">
-                    <summary class="text-sm font-bold text-teal-600 cursor-pointer flex items-center">
-                        <i class="ph-bold ph-caret-right mr-1 transition-transform group-open/ans:rotate-90"></i> Show Answer
-                    </summary>
-                    <div class="mt-2 text-sm text-teal-700 bg-white/50 p-4 rounded border border-teal-100">
-                        <strong>Step 1:</strong> Config of X (Atomic No. 19) is 2,8,8,1. It has 1 valence electron, so it is a metal with an electrovalency of +1.<br>
-                        <strong>Step 2:</strong> Config of Y (Atomic No. 8) is 2,6. It needs 2 electrons, so it is a non-metal with an electrovalency of -2.<br>
-                        <strong>Formula:</strong> By criss-crossing the valencies ($X^{+1}$ and $Y^{-2}$), the formula is <strong>X₂Y</strong>.<br>
-                        <strong>Bond Type:</strong> Since the bond is between a metal and a non-metal involving electron transfer, it is an <strong>Electrovalent (Ionic) Bond</strong>.
-                    </div>
-                </details>
-            </div>
-
-            <!-- Self-Assessment: Part 1 -->
-            <div class="bg-indigo-50 border border-indigo-100 p-6 rounded-xl mt-8">
-                <h4 class="font-bold text-indigo-900 mb-4 flex items-center">
-                    <i class="ph-fill ph-brain text-indigo-500 mr-2 text-xl"></i> Quick Check: Electrovalent Bonding
-                </h4>
-                
-                <div class="space-y-4">
-                    <!-- Q1 -->
-                    <div class="bg-white p-4 rounded-lg border border-indigo-100 shadow-sm">
-                        <p class="font-medium text-slate-800 mb-2">1. If element 'A' is in Group 2 and element 'B' is in Group 17, what kind of bond will they form, and what will be the formula?</p>
-                        <details class="group">
-                            <summary class="cursor-pointer text-sm font-bold text-indigo-600 hover:text-indigo-700 flex items-center select-none"><i class="ph-bold ph-caret-right mr-1 transition-transform group-open:rotate-90"></i> View Answer</summary>
-                            <div class="mt-3 p-3 bg-slate-50 rounded-md text-sm text-slate-700 border border-slate-200">
-                                They will form an <strong>Electrovalent (Ionic) bond</strong> because Group 2 elements are metals and Group 17 elements are non-metals.<br>
-                                Group 2 means 'A' has a valency of +2. Group 17 means 'B' has a valency of -1. Criss-crossing gives the formula <strong>AB₂</strong>.
-                            </div>
-                        </details>
-                    </div>
-
-                    <!-- Q2 -->
-                    <div class="bg-white p-4 rounded-lg border border-indigo-100 shadow-sm">
-                        <p class="font-medium text-slate-800 mb-2">2. Why does the formation of an ionic bond require a large electronegativity difference?</p>
-                        <details class="group">
-                            <summary class="cursor-pointer text-sm font-bold text-indigo-600 hover:text-indigo-700 flex items-center select-none"><i class="ph-bold ph-caret-right mr-1 transition-transform group-open:rotate-90"></i> View Answer</summary>
-                            <div class="mt-3 p-3 bg-slate-50 rounded-md text-sm text-slate-700 border border-slate-200">
-                                A large electronegativity difference ensures that the non-metal's pull on electrons is so overwhelmingly stronger than the metal's hold on them, that the electron is completely ripped away (transferred) rather than being mutually shared.
-                            </div>
-                        </details>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ========================================== -->
-        <!-- TIME BLOCK 2: COVALENT BONDS               -->
-        <!-- ========================================== -->
-        <section class="mb-16">
-            <h2 class="text-2xl font-bold text-slate-800 border-b-2 border-slate-100 pb-2 mb-6 flex items-center">
-                <div class="bg-pink-100 p-2 rounded-lg mr-3"><i class="ph-fill ph-link text-pink-600"></i></div>
-                Part 2: Covalent Bonding
-            </h2>
-
-            <div class="content-text">
-                <p>Covalent bonding is the chemistry of compromise. It occurs strictly between two <strong>Non-Metals</strong>.</p>
-                <p>Why sharing? Because non-metals (found on the right side of the periodic table) have high Ionization Potentials and high Electron Affinities. This means neither atom is willing to give up an electron, and both are aggressively trying to gain one. Since a complete transfer is impossible, they compromise by <strong>mutually sharing</strong> one or more electron pairs. The shared pairs orbit both nuclei, belonging to the outermost shells of both atoms simultaneously, counting towards both of their octets.</p>
-                
-                <ul class="list-disc pl-8 mb-4 space-y-2">
-                    <li><strong>Single Covalent Bond (—):</strong> 1 pair (2 electrons) is shared. (e.g., $H_2$, $Cl_2$, $CH_4$)</li>
-                    <li><strong>Double Covalent Bond (=):</strong> 2 pairs (4 electrons) are shared. (e.g., $O_2$, $C_2H_4$)</li>
-                    <li><strong>Triple Covalent Bond ($\equiv$):</strong> 3 pairs (6 electrons) are shared. (e.g., $N_2$)</li>
-                </ul>
-                <p><em>Covalency</em> is the exact number of electron pairs an atom shares with other atoms to achieve stability.</p>
-            </div>
-
-            <div class="content-tip">
-                <div class="block-tag bg-amber-200 text-amber-800 border border-amber-300">Board Exam Hack</div>
-                <h4 class="font-bold text-amber-900 mb-1 flex items-center">
-                    <i class="ph-fill ph-lightbulb mr-2 text-xl text-amber-500"></i> Beware of Lone Pairs!
-                </h4>
-                <p class="text-sm text-amber-800">In covalent bonding, do NOT use square brackets or charges. However, examiners specifically look for <strong>Lone Pairs</strong>. A lone pair is a pair of valence electrons that do NOT participate in bonding. For example, Nitrogen in $NH_3$ has 5 valence electrons: it uses 3 to bond with Hydrogen, leaving 2 electrons (1 pair) completely unused. This is the lone pair. If you draw the molecule without showing the unused dots, you will lose marks.</p>
-            </div>
-
-            <hr class="my-8 border-slate-200">
-
-            <h3 class="text-2xl font-bold text-slate-800 mt-10 mb-4 bg-slate-100 py-3 px-5 rounded-xl border border-slate-200">A. Non-Polar Covalent Bonds</h3>
-            <div class="content-text">
-                <p>Non-polar bonds occur between atoms of the <em>same element</em> (like two Chlorine atoms) or elements with a negligible difference in electronegativity (like Carbon and Hydrogen). Because both atoms pull on the shared electrons with equal or nearly equal strength, the shared pair of electrons remains <strong>exactly in the center</strong> between the two nuclei. No fractional charges (no "poles") are formed. The molecule is perfectly balanced.</p>
-            </div>
-
-            <div class="content-text font-bold text-xl mt-8 text-pink-600 border-b pb-2">Example 1: Hydrogen Molecule ($H_2$)</div>
-            <div class="content-text">
-                <p>Two Hydrogen atoms, each with 1 electron, approach each other. They share their single electrons. The single shared pair orbits both atoms, allowing both to satisfy the duplet rule (imitating Helium).</p>
-            </div>
-            <div class="content-math">
-                $$ \ce{H \cdot + \cdot H -> H : H -> H - H} $$
-            </div>
-            <div class="content-text text-sm text-center -mt-4 text-slate-500 font-medium">One shared pair. Zero lone pairs. Perfectly Non-Polar.</div>
-
-            <div class="content-text font-bold text-xl mt-8 text-pink-600 border-b pb-2">Example 2: Chlorine Molecule ($Cl_2$)</div>
-            <div class="content-text">
-                <p>Each Chlorine atom ($2,8,7$) is desperate for 1 electron. By mutually sharing one pair in the middle, both achieve 8 valence electrons. Since they are identical atoms, they pull equally.</p>
-            </div>
-            <div class="content-math">
-                $$ \ce{Cl - Cl} $$
-            </div>
-            <div class="content-text text-sm text-center -mt-4 text-slate-500 font-medium">Each Chlorine atom is left with 3 lone pairs (6 unshared electrons) around its perimeter.</div>
-
-            <div class="content-text font-bold text-xl mt-8 text-pink-600 border-b pb-2">Example 3: Nitrogen Molecule ($N_2$)</div>
-            <div class="content-text">
-                <p>Nitrogen ($2,5$) needs a massive 3 electrons to complete its octet. To solve this, two Nitrogen atoms must share <strong>3 pairs</strong> of electrons between them, forming a dense, incredibly strong triple bond.</p>
-            </div>
-            <div class="content-math">
-                $$ \ce{:N \equiv N:} $$
-            </div>
-            <div class="content-text text-sm text-center -mt-4 text-slate-500 font-medium">Each Nitrogen atom has used 3 electrons for bonding, leaving exactly 1 lone pair on each atom.</div>
-
-            <div class="content-text font-bold text-xl mt-8 text-pink-600 border-b pb-2">Example 4: Methane ($CH_4$) & Carbon Tetrachloride ($CCl_4$)</div>
-            <div class="content-text">
-                <p>Carbon ($2,4$) needs 4 electrons. It forms 4 individual single covalent bonds with 4 Hydrogen atoms (or 4 Chlorine atoms). Because Carbon is surrounded symmetrically in a 3D tetrahedral shape, any slight pulls cancel out. The entire molecule remains fundamentally <strong>non-polar</strong>.</p>
-            </div>
-
-            <h3 class="text-2xl font-bold text-slate-800 mt-16 mb-4 bg-slate-100 py-3 px-5 rounded-xl border border-slate-200">B. Polar Covalent Bonds</h3>
-            <div class="content-text">
-                <p>Polar bonds occur between dissimilar non-metals with a <strong>noticeable difference in electronegativity</strong>. Imagine a tug-of-war where one person is a bodybuilder and the other is a child. The more electronegative atom acts like the bodybuilder—it pulls the shared electron pair much closer to its own nucleus.</p>
-                <p>Because electrons are negatively charged, the atom hoarding the electrons develops a slight negative fractional charge, written as <strong>$\delta-$</strong> (delta negative). The atom losing the tug-of-war is slightly stripped of its electron shield, developing a slight positive fractional charge, written as <strong>$\delta+$</strong> (delta positive). The molecule now has a positive end and a negative end. It has developed "poles."</p>
-            </div>
-
-            <div class="content-text font-bold text-xl mt-8 text-pink-600 border-b pb-2">Example 5: Water ($H_2O$)</div>
-            <div class="content-text">
-                <p>Oxygen ($2,6$) needs 2 electrons. It shares 1 electron with each of two Hydrogen atoms. Oxygen is vastly more electronegative than Hydrogen. It pulls the shared electron pairs greedily towards itself. The Oxygen atom becomes $\delta-$, and the two Hydrogens become $\delta+$.</p>
-                <p>Furthermore, Oxygen has 6 valence electrons but only used 2 for bonding. This leaves it with <strong>2 lone pairs</strong> sitting on top, pushing the Hydrogen atoms down into an asymmetrical "bent" shape, intensifying the polarity.</p>
-            </div>
-
-            <div class="content-text font-bold text-xl mt-8 text-pink-600 border-b pb-2">Example 6: Ammonia ($NH_3$)</div>
-            <div class="content-text">
-                <p>Nitrogen ($2,5$) forms 3 single bonds with 3 Hydrogen atoms. Nitrogen is the more electronegative bully, becoming $\delta-$. The molecule has 3 bond pairs and exactly <strong>1 lone pair</strong> resting on the Nitrogen atom, creating a pyramidal, polar shape.</p>
-            </div>
-
-            <div class="content-pyq mt-10">
-                <div class="block-tag bg-teal-200 text-teal-900 border border-teal-300">ICSE 2023</div>
-                <h4 class="font-bold text-teal-900 mb-2 flex items-center">
-                    <i class="ph-fill ph-exam mr-2 text-xl text-teal-600"></i> Past Year Question
-                </h4>
-                <p class="text-teal-800 font-medium">Explain why Hydrogen Chloride (HCl) gas is a polar covalent compound. [2 Marks]</p>
-                <details class="mt-3 group/ans">
-                    <summary class="text-sm font-bold text-teal-600 cursor-pointer flex items-center">
-                        <i class="ph-bold ph-caret-right mr-1 transition-transform group-open/ans:rotate-90"></i> Show Answer
-                    </summary>
-                    <div class="mt-2 text-sm text-teal-700 bg-white/50 p-4 rounded border border-teal-100">
-                        In the HCl molecule, Chlorine is significantly more electronegative than Hydrogen. Therefore, Chlorine exerts a stronger pull and attracts the mutually shared pair of electrons closer to its own nucleus. This unequal sharing of electrons develops a slight fractional negative charge ($\delta-$) on the Chlorine atom and a slight fractional positive charge ($\delta+$) on the Hydrogen atom, resulting in the formation of a polar covalent compound.
-                    </div>
-                </details>
-            </div>
-
-            <!-- Self-Assessment: Part 2 -->
-            <div class="bg-indigo-50 border border-indigo-100 p-6 rounded-xl mt-8">
-                <h4 class="font-bold text-indigo-900 mb-4 flex items-center">
-                    <i class="ph-fill ph-brain text-indigo-500 mr-2 text-xl"></i> Quick Check: Covalent Bonding
-                </h4>
-                
-                <div class="space-y-4">
-                    <!-- Q1 -->
-                    <div class="bg-white p-4 rounded-lg border border-indigo-100 shadow-sm">
-                        <p class="font-medium text-slate-800 mb-2">1. How many lone pairs and bond pairs of electrons are present in a single molecule of Ammonia ($NH_3$)?</p>
-                        <details class="group">
-                            <summary class="cursor-pointer text-sm font-bold text-indigo-600 hover:text-indigo-700 flex items-center select-none"><i class="ph-bold ph-caret-right mr-1 transition-transform group-open:rotate-90"></i> View Answer</summary>
-                            <div class="mt-3 p-3 bg-slate-50 rounded-md text-sm text-slate-700 border border-slate-200">
-                                There are <strong>3 bond pairs</strong> (between N and the 3 H atoms) and <strong>1 lone pair</strong> (the 2 unused valence electrons sitting on the Nitrogen atom).
-                            </div>
-                        </details>
-                    </div>
-
-                    <!-- Q2 -->
-                    <div class="bg-white p-4 rounded-lg border border-indigo-100 shadow-sm">
-                        <p class="font-medium text-slate-800 mb-2">2. Why is Carbon Tetrachloride ($CCl_4$) considered non-polar, even though the C-Cl bonds themselves are polar?</p>
-                        <details class="group">
-                            <summary class="cursor-pointer text-sm font-bold text-indigo-600 hover:text-indigo-700 flex items-center select-none"><i class="ph-bold ph-caret-right mr-1 transition-transform group-open:rotate-90"></i> View Answer</summary>
-                            <div class="mt-3 p-3 bg-slate-50 rounded-md text-sm text-slate-700 border border-slate-200">
-                                $CCl_4$ has a perfectly symmetrical tetrahedral geometric shape. Even though each Chlorine atom pulls electrons away from the central Carbon atom, they pull with equal strength in exactly opposite, symmetrical directions. The polarities cancel each other out entirely, resulting in a net dipole moment of zero.
-                            </div>
-                        </details>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========================================== -->
-        <!-- TIME BLOCK 3: COORDINATE BONDS             -->
-        <!-- ========================================== -->
-        <section class="mb-16">
-            <h2 class="text-2xl font-bold text-slate-800 border-b-2 border-slate-100 pb-2 mb-6 flex items-center">
-                <div class="bg-emerald-100 p-2 rounded-lg mr-3"><i class="ph-fill ph-arrows-merge text-emerald-600"></i></div>
-                Part 3: Coordinate (Dative) Bonding
-            </h2>
-
-            <div class="content-text">
-                <p>A Coordinate Bond is a highly specialized type of covalent bond. In a standard covalent bond, both interacting atoms bring 1 electron to the table to form a shared pair. It's a 50/50 partnership.</p>
-                <p>In a coordinate bond, however, <strong>the shared pair of electrons is provided entirely by only ONE of the combining atoms.</strong> The other atom brings nothing to the table but an empty space.</p>
-                <ul class="list-disc pl-8 mb-4 space-y-2">
-                    <li><strong>The Donor:</strong> The atom that generously provides the entire lone pair of electrons for sharing. To do this, it <em>must</em> have at least one lone pair available (like Nitrogen in $NH_3$ or Oxygen in $H_2O$).</li>
-                    <li><strong>The Acceptor:</strong> The atom or ion that is completely short of a pair of electrons and happily accepts the share. The most common acceptor in ICSE is the Hydrogen ion ($H^+$), which is essentially just a naked proton with 0 electrons.</li>
-                </ul>
-                <p>The bond is visually represented not by a straight line, but by an <strong>arrow ($\rightarrow$)</strong> pointing strictly from the donor atom to the acceptor atom. Crucially, once this bond is formed, it is physically identical to and behaves exactly like a normal single covalent bond.</p>
-            </div>
-
-            <div class="content-text font-bold text-xl mt-10 text-emerald-700 border-b pb-2">ICSE Standard Example 1: The Hydronium Ion ($H_3O^+$)</div>
-            <div class="content-text">
-                <p>When an acid (like HCl) dissolves in water, it releases a Hydrogen ion ($H^+$). This $H^+$ is violently unstable because it has zero electrons.</p>
-                <p>A nearby water molecule ($H_2O$) has an Oxygen atom possessing two lone pairs. The Oxygen atom takes pity on the $H^+$ ion and <strong>donates one of its lone pairs</strong> to be shared with the $H^+$. An arrow is drawn from the O to the incoming H. The entire new structure inherits the positive charge of the proton, resulting in the Hydronium ion, $[H_3O]^+$.</p>
-            </div>
-            <div class="content-math">
-                $$ \ce{H2O + H^+ -> [H3O]+} $$
-            </div>
-
-            <div class="content-text font-bold text-xl mt-10 text-emerald-700 border-b pb-2">ICSE Standard Example 2: The Ammonium Ion ($NH_4^+$)</div>
-            <div class="content-text">
-                <p>Similarly, an ammonia molecule ($NH_3$) features a Nitrogen atom harboring exactly one lone pair. When exposed to an acidic environment containing $H^+$ ions, the Nitrogen atom donates its lone pair to a Hydrogen ion.</p>
-                <p>The resulting structure has 3 normal covalent bonds (N—H) and 1 coordinate bond (N $\rightarrow$ H). Because it absorbed a positive proton, the whole molecule becomes the positively charged Ammonium ion, $[NH_4]^+$.</p>
-            </div>
-            <div class="content-math">
-                $$ \ce{NH3 + H^+ -> [NH4]+} $$
-            </div>
-
-            <div class="content-tip">
-                <div class="block-tag bg-amber-200 text-amber-800 border border-amber-300">Crucial Distinction</div>
-                <h4 class="font-bold text-amber-900 mb-1 flex items-center">
-                    <i class="ph-fill ph-star mr-2 text-xl text-amber-500"></i> The "All-in-One" Molecule
-                </h4>
-                <p class="text-sm text-amber-800">ICSE loves to ask this specific question: "Name a compound that contains all three types of bonds (Electrovalent, Covalent, and Coordinate)." The ultimate answer is <strong>Ammonium Chloride ($NH_4Cl$)</strong>. <br><br>1. <strong>Covalent bonds</strong> exist between the central Nitrogen and 3 Hydrogen atoms to form basic ammonia ($NH_3$). <br>2. A <strong>Coordinate bond</strong> exists when Nitrogen donates its lone pair to an $H^+$ to form the Ammonium cation ($NH_4^+$). <br>3. An <strong>Electrovalent (Ionic) bond</strong> exists between the massive positive $[NH_4]^+$ cation and the negative Chloride anion $[Cl]^-$!</p>
-            </div>
-
-            <!-- Self-Assessment: Part 3 -->
-            <div class="bg-indigo-50 border border-indigo-100 p-6 rounded-xl mt-8">
-                <h4 class="font-bold text-indigo-900 mb-4 flex items-center">
-                    <i class="ph-fill ph-brain text-indigo-500 mr-2 text-xl"></i> Quick Check: Coordinate Bonding
-                </h4>
-                
-                <div class="space-y-4">
-                    <!-- Q1 -->
-                    <div class="bg-white p-4 rounded-lg border border-indigo-100 shadow-sm">
-                        <p class="font-medium text-slate-800 mb-2">1. In the formation of the Hydronium ion, which atom acts as the donor, and what exactly is it donating?</p>
-                        <details class="group">
-                            <summary class="cursor-pointer text-sm font-bold text-indigo-600 hover:text-indigo-700 flex items-center select-none"><i class="ph-bold ph-caret-right mr-1 transition-transform group-open:rotate-90"></i> View Answer</summary>
-                            <div class="mt-3 p-3 bg-slate-50 rounded-md text-sm text-slate-700 border border-slate-200">
-                                The <strong>Oxygen atom</strong> inside the water ($H_2O$) molecule acts as the donor. It is donating a <strong>lone pair of electrons</strong> for mutual sharing with the electron-deficient Hydrogen ion ($H^+$).
-                            </div>
-                        </details>
-                    </div>
-
-                    <!-- Q2 -->
-                    <div class="bg-white p-4 rounded-lg border border-indigo-100 shadow-sm">
-                        <p class="font-medium text-slate-800 mb-2">2. How do you visually differentiate a coordinate bond from a normal covalent bond in a structural diagram?</p>
-                        <details class="group">
-                            <summary class="cursor-pointer text-sm font-bold text-indigo-600 hover:text-indigo-700 flex items-center select-none"><i class="ph-bold ph-caret-right mr-1 transition-transform group-open:rotate-90"></i> View Answer</summary>
-                            <div class="mt-3 p-3 bg-slate-50 rounded-md text-sm text-slate-700 border border-slate-200">
-                                A normal covalent bond is drawn as a straight, solid line (—). A coordinate bond is drawn as an arrow ($\rightarrow$) pointing directly from the donor atom to the acceptor atom.
-                            </div>
-                        </details>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========================================== -->
-        <!-- TIME BLOCK 4: COMPARATIVE PROPERTIES       -->
-        <!-- ========================================== -->
-        <section class="mb-14">
-            <h2 class="text-2xl font-bold text-slate-800 border-b-2 border-slate-100 pb-2 mb-6 flex items-center">
-                <div class="bg-rose-100 p-2 rounded-lg mr-3"><i class="ph-fill ph-scales text-rose-600"></i></div>
-                Part 4: Comparative Properties (ICSE Favorites)
-            </h2>
             
-            <div class="content-text">
-                <p>You are virtually guaranteed to see a 2-3 mark question comparing the physical properties of these compounds. Do not just memorize this table; you must understand the deep <em>reasoning</em> behind each property, as ICSE papers test your conceptual logic rather than your memory.</p>
-            </div>
+            <p class="text-lg text-slate-600 mb-10 font-medium leading-relaxed bg-white p-5 rounded-xl border border-slate-200 shadow-sm">This comprehensive mock test mimics the exact layout and strictness of the ICSE Board Chemistry paper (Chemical Bonding). Complete all sections independently before unlocking the highly detailed Answer Key & Marking Scheme at the bottom.</p>
 
-            <div class="overflow-x-auto mb-8 shadow-sm rounded-xl mt-6">
-                <table class="min-w-full bg-white border border-slate-200">
-                    <thead>
-                        <tr class="bg-slate-800 text-white text-left">
-                            <th class="py-4 px-5 font-bold">Property</th>
-                            <th class="py-4 px-5 font-bold border-l border-slate-600 w-2/5">Electrovalent (Ionic) Compounds</th>
-                            <th class="py-4 px-5 font-bold border-l border-slate-600 w-2/5">Covalent Compounds</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="border-b border-slate-200">
-                            <td class="py-4 px-5 font-bold text-slate-800 bg-slate-50">1. State of Existence</td>
-                            <td class="py-4 px-5 text-slate-700 border-l border-slate-200">Hard, crystalline solids.<br><br><span class="text-xs text-slate-500 font-semibold block uppercase">The Why:</span>Strong electrostatic forces lock the oppositely charged ions tightly into a rigid, non-moving 3D crystal lattice.</td>
-                            <td class="py-4 px-5 text-slate-700 border-l border-slate-200">Usually gases, liquids, or soft solids.<br><br><span class="text-xs text-slate-500 font-semibold block uppercase">The Why:</span>Molecules are separate and held together by very weak intermolecular forces (Van der Waals forces).</td>
-                        </tr>
-                        <tr class="border-b border-slate-200">
-                            <td class="py-4 px-5 font-bold text-slate-800 bg-slate-50">2. Melting & Boiling Points</td>
-                            <td class="py-4 px-5 text-slate-700 border-l border-slate-200"><strong>Extremely High.</strong><br><br><span class="text-xs text-slate-500 font-semibold block uppercase">The Why:</span>Immense amounts of thermal energy (heat) are required to overpower and break the strong electrostatic bonds between the millions of clustered ions.</td>
-                            <td class="py-4 px-5 text-slate-700 border-l border-slate-200"><strong>Very Low.</strong><br><br><span class="text-xs text-slate-500 font-semibold block uppercase">The Why:</span>Very little heat is needed because you are only breaking the weak Van der Waals forces between molecules, not breaking the atoms themselves apart.</td>
-                        </tr>
-                        <tr class="border-b border-slate-200">
-                            <td class="py-4 px-5 font-bold text-slate-800 bg-slate-50">3. Electrical Conductivity</td>
-                            <td class="py-4 px-5 text-slate-700 border-l border-slate-200"><strong>Non-conductors in solid state.</strong><br><strong>Excellent conductors in molten (melted) or aqueous (dissolved) state.</strong><br><br><span class="text-xs text-slate-500 font-semibold block uppercase">The Why:</span>Electricity requires mobile charges. In solids, ions are trapped. When melted or dissolved, the lattice breaks and ions become free to move and carry charge.</td>
-                            <td class="py-4 px-5 text-slate-700 border-l border-slate-200"><strong>Complete Non-conductors.</strong><br><br><span class="text-xs text-slate-500 font-semibold block uppercase">The Why:</span>They contain neutral molecules, not ions. Without ions, no charge can be carried.<br><br><em>*Critical Exception: Polar covalent compounds (like HCl gas) ionize into $H^+$ and $Cl^-$ when dissolved in water, allowing them to conduct!</em></td>
-                        </tr>
-                        <tr>
-                            <td class="py-4 px-5 font-bold text-slate-800 bg-slate-50">4. Solubility</td>
-                            <td class="py-4 px-5 text-slate-700 border-l border-slate-200">Highly soluble in water (polar solvents). Insoluble in organic solvents (like benzene, ether).<br><br><span class="text-xs text-slate-500 font-semibold block uppercase">The Why:</span>Water is polar. Its positive and negative poles latch onto the ions and literally pull the crystal apart.</td>
-                            <td class="py-4 px-5 text-slate-700 border-l border-slate-200">Insoluble in water. Highly soluble in organic (non-polar) solvents.<br><br><span class="text-xs text-slate-500 font-semibold block uppercase">The Why:</span>Follows the universal chemistry rule: "Like dissolves like." Non-polar molecules easily mix with other non-polar solvents.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="content-pyq mt-10">
-                <div class="block-tag bg-teal-200 text-teal-900 border border-teal-300">ICSE 2019</div>
-                <h4 class="font-bold text-teal-900 mb-2 flex items-center">
-                    <i class="ph-fill ph-exam mr-2 text-xl text-teal-600"></i> Past Year Question
-                </h4>
-                <p class="text-teal-800 font-medium">Solid sodium chloride does not conduct electricity, but aqueous sodium chloride is a good conductor. Explain why logically. [2 Marks]</p>
-                <details class="mt-3 group/ans">
-                    <summary class="text-sm font-bold text-teal-600 cursor-pointer flex items-center">
-                        <i class="ph-bold ph-caret-right mr-1 transition-transform group-open/ans:rotate-90"></i> Show Answer
-                    </summary>
-                    <div class="mt-2 text-sm text-teal-700 bg-white/50 p-4 rounded border border-teal-100">
-                        In the solid state, the $Na^+$ and $Cl^-$ ions are held tightly together by exceptionally strong electrostatic forces of attraction within a rigid, 3D crystal lattice. Because they are locked in place, there are no free, mobile ions to carry the electric current. <br><br>However, when dissolved in water (aqueous state), the polar nature of the water molecules severely weakens these electrostatic forces, causing the lattice structure to break apart. The ions separate and become completely free to move throughout the solution, thereby allowing the aqueous solution to conduct electricity perfectly.
+            <!-- SECTION A: MCQs -->
+            <div class="bg-white border border-slate-200 rounded-xl shadow-sm mb-10 overflow-hidden">
+                <div class="bg-slate-100 border-b border-slate-200 px-6 py-4 flex justify-between items-center">
+                    <h3 class="font-bold text-xl text-slate-800">Section A: Multiple Choice Questions</h3>
+                    <span class="font-bold text-slate-600 bg-slate-200 px-3 py-1 rounded">[10 Marks]</span>
+                </div>
+                <div class="p-6 space-y-8">
+                    <div>
+                        <p class="font-semibold text-slate-800 mb-3 text-lg">1. The conditions most favorable for the formation of an ionic bond between two atoms are:</p>
+                        <ol class="list-[lower-alpha] pl-5 space-y-2 text-slate-700">
+                            <li class="pl-2">Low Ionization Potential of the metal and High Electron Affinity of the non-metal.</li>
+                            <li class="pl-2">High Ionization Potential of the metal and Low Electron Affinity of the non-metal.</li>
+                            <li class="pl-2">Low Ionization Potential and Low Electronegativity of both.</li>
+                            <li class="pl-2">High Ionization Potential and High Electron Affinity of both.</li>
+                        </ol>
                     </div>
-                </details>
-            </div>
-
-            <!-- Self-Assessment: Part 4 -->
-            <div class="bg-indigo-50 border border-indigo-100 p-6 rounded-xl mt-8">
-                <h4 class="font-bold text-indigo-900 mb-4 flex items-center">
-                    <i class="ph-fill ph-brain text-indigo-500 mr-2 text-xl"></i> Quick Check: Properties
-                </h4>
-                
-                <div class="space-y-4">
-                    <!-- Q1 -->
-                    <div class="bg-white p-4 rounded-lg border border-indigo-100 shadow-sm">
-                        <p class="font-medium text-slate-800 mb-2">1. Why does boiling water (a covalent compound) only require 100°C, while melting table salt (an ionic compound) requires over 800°C?</p>
-                        <details class="group">
-                            <summary class="cursor-pointer text-sm font-bold text-indigo-600 hover:text-indigo-700 flex items-center select-none"><i class="ph-bold ph-caret-right mr-1 transition-transform group-open:rotate-90"></i> View Answer</summary>
-                            <div class="mt-3 p-3 bg-slate-50 rounded-md text-sm text-slate-700 border border-slate-200">
-                                Boiling water only requires enough heat to break the weak intermolecular forces (Van der Waals forces) holding separate water molecules together. Melting salt requires a massive amount of thermal energy to physically break the immense electrostatic magnetic-like forces binding the millions of sodium and chloride ions together in a crystal structure.
-                            </div>
-                        </details>
+                    <div>
+                        <p class="font-semibold text-slate-800 mb-3 text-lg">2. In the Hydronium ion ($H_3O^+$), the types of bonds present are:</p>
+                        <ol class="list-[lower-alpha] pl-5 space-y-2 text-slate-700">
+                            <li class="pl-2">Two single covalent bonds and one coordinate bond.</li>
+                            <li class="pl-2">Three single covalent bonds.</li>
+                            <li class="pl-2">Two ionic bonds and one coordinate bond.</li>
+                            <li class="pl-2">One ionic bond and two covalent bonds.</li>
+                        </ol>
                     </div>
-
-                    <!-- Q2 -->
-                    <div class="bg-white p-4 rounded-lg border border-indigo-100 shadow-sm">
-                        <p class="font-medium text-slate-800 mb-2">2. True or False: All covalent compounds are completely incapable of conducting electricity in any state.</p>
-                        <details class="group">
-                            <summary class="cursor-pointer text-sm font-bold text-indigo-600 hover:text-indigo-700 flex items-center select-none"><i class="ph-bold ph-caret-right mr-1 transition-transform group-open:rotate-90"></i> View Answer</summary>
-                            <div class="mt-3 p-3 bg-slate-50 rounded-md text-sm text-slate-700 border border-slate-200">
-                                <strong>False.</strong> While mostly true for non-polar covalent compounds, <em>polar</em> covalent compounds (like Hydrogen Chloride gas) undergo ionization when dissolved in water. They react with water to form free ions ($H_3O^+$ and $Cl^-$), which then act as excellent conductors of electricity.
-                            </div>
-                        </details>
+                    <div>
+                        <p class="font-semibold text-slate-800 mb-3 text-lg">3. A compound X is a good conductor of electricity in the molten state but an insulator in the solid state. X is most likely:</p>
+                        <ol class="list-[lower-alpha] pl-5 space-y-2 text-slate-700">
+                            <li class="pl-2">Carbon tetrachloride ($CCl_4$)</li>
+                            <li class="pl-2">Sodium chloride ($NaCl$)</li>
+                            <li class="pl-2">Methane ($CH_4$)</li>
+                            <li class="pl-2">Ammonia ($NH_3$)</li>
+                        </ol>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-slate-800 mb-3 text-lg">4. Which of the following molecules contains a triple covalent bond?</p>
+                        <ol class="list-[lower-alpha] pl-5 space-y-2 text-slate-700">
+                            <li class="pl-2">Water ($H_2O$)</li>
+                            <li class="pl-2">Oxygen ($O_2$)</li>
+                            <li class="pl-2">Nitrogen ($N_2$)</li>
+                            <li class="pl-2">Chlorine ($Cl_2$)</li>
+                        </ol>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-slate-800 mb-3 text-lg">5. Methane ($CH_4$) is a non-polar compound because:</p>
+                        <ol class="list-[lower-alpha] pl-5 space-y-2 text-slate-700">
+                            <li class="pl-2">Carbon and Hydrogen have a massive electronegativity difference.</li>
+                            <li class="pl-2">It has a perfectly symmetrical tetrahedral structure, canceling out bond polarities.</li>
+                            <li class="pl-2">It contains an ionic bond.</li>
+                            <li class="pl-2">It has two lone pairs of electrons.</li>
+                        </ol>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-slate-800 mb-3 text-lg">6. In the formation of the Ammonium ion ($NH_4^+$), the donor atom is:</p>
+                        <ol class="list-[lower-alpha] pl-5 space-y-2 text-slate-700">
+                            <li class="pl-2">Hydrogen</li>
+                            <li class="pl-2">The Hydrogen ion ($H^+$)</li>
+                            <li class="pl-2">Nitrogen</li>
+                            <li class="pl-2">Oxygen</li>
+                        </ol>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-slate-800 mb-3 text-lg">7. Element A has atomic number 12 and Element B has atomic number 8. The formula of their compound is:</p>
+                        <ol class="list-[lower-alpha] pl-5 space-y-2 text-slate-700">
+                            <li class="pl-2">$A_2B$</li>
+                            <li class="pl-2">$AB_2$</li>
+                            <li class="pl-2">$AB$</li>
+                            <li class="pl-2">$A_2B_3$</li>
+                        </ol>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-slate-800 mb-3 text-lg">8. Identify the compound that possesses ionic, covalent, and coordinate bonds all at once:</p>
+                        <ol class="list-[lower-alpha] pl-5 space-y-2 text-slate-700">
+                            <li class="pl-2">Ammonium chloride ($NH_4Cl$)</li>
+                            <li class="pl-2">Sodium hydroxide ($NaOH$)</li>
+                            <li class="pl-2">Water ($H_2O$)</li>
+                            <li class="pl-2">Carbon dioxide ($CO_2$)</li>
+                        </ol>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-slate-800 mb-3 text-lg">9. Covalent compounds generally have low boiling points because:</p>
+                        <ol class="list-[lower-alpha] pl-5 space-y-2 text-slate-700">
+                            <li class="pl-2">The covalent bonds between the atoms are very weak.</li>
+                            <li class="pl-2">They have weak Van der Waals forces between their molecules.</li>
+                            <li class="pl-2">They are held by strong electrostatic forces.</li>
+                            <li class="pl-2">They exist as rigid lattices.</li>
+                        </ol>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-slate-800 mb-3 text-lg">10. How many lone pairs of electrons are present on the central Oxygen atom in a water molecule ($H_2O$)?</p>
+                        <ol class="list-[lower-alpha] pl-5 space-y-2 text-slate-700">
+                            <li class="pl-2">Zero</li>
+                            <li class="pl-2">One</li>
+                            <li class="pl-2">Two</li>
+                            <li class="pl-2">Three</li>
+                        </ol>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- Completion -->
-        <div class="bg-slate-800 rounded-2xl p-10 text-center text-white mt-16 shadow-2xl relative overflow-hidden">
-            <div class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3N2Zz4=')]"></div>
-            <i class="ph-fill ph-trophy text-amber-400 text-7xl mb-5 relative z-10"></i>
-            <h2 class="text-3xl md:text-4xl font-extrabold mb-3 relative z-10">Masterclass Conquered!</h2>
-            <p class="text-slate-300 mb-8 max-w-lg mx-auto relative z-10 text-lg leading-relaxed">Incredible work, Sambhav. You have absorbed the sheer depth of a textbook completely independently. You are fully equipped with the logical reasoning required to tackle any ICSE Board Question on Chemical Bonding.</p>
-            <div class="flex justify-center relative z-10 mt-4">
-                <a href="index.html" class="inline-flex justify-center items-center bg-white text-slate-900 font-bold py-3 px-10 rounded-full hover:bg-slate-100 transition-colors shadow-lg text-lg">
-                    Back to Chapter Hub
-                </a>
+            <!-- SECTION B: Electron Dot -->
+            <div class="bg-white border border-slate-200 rounded-xl shadow-sm mb-10 overflow-hidden">
+                <div class="bg-slate-100 border-b border-slate-200 px-6 py-4 flex justify-between items-center">
+                    <h3 class="font-bold text-xl text-slate-800">Section B: Electron Dot Diagrams</h3>
+                    <span class="font-bold text-slate-600 bg-slate-200 px-3 py-1 rounded">[10 Marks]</span>
+                </div>
+                <div class="p-6">
+                    <p class="text-slate-700 mb-6 font-medium text-lg">Draw the correct electron dot structure (Lewis structure) for the following molecules/ions. Show all valence electrons and clearly distinguish between shared pairs, lone pairs, and complete transfers where applicable.</p>
+                    <ol class="list-decimal pl-5 space-y-5 text-slate-800 font-semibold text-lg">
+                        <li class="pb-2 border-b border-slate-100">Sodium Chloride ($NaCl$) <span class="font-normal text-slate-500 float-right">[2]</span></li>
+                        <li class="pb-2 border-b border-slate-100">Water ($H_2O$) <span class="font-normal text-slate-500 float-right">[2]</span></li>
+                        <li class="pb-2 border-b border-slate-100">Ammonia ($NH_3$) <span class="font-normal text-slate-500 float-right">[2]</span></li>
+                        <li class="pb-2 border-b border-slate-100">Calcium Oxide ($CaO$) <span class="font-normal text-slate-500 float-right">[2]</span></li>
+                        <li class="pb-2">Hydronium Ion ($H_3O^+$) <span class="font-normal text-slate-500 float-right">[2]</span></li>
+                    </ol>
+                </div>
             </div>
-        </div>
+
+            <!-- SECTION C: Reasoning -->
+            <div class="bg-white border border-slate-200 rounded-xl shadow-sm mb-10 overflow-hidden">
+                <div class="bg-slate-100 border-b border-slate-200 px-6 py-4 flex justify-between items-center">
+                    <h3 class="font-bold text-xl text-slate-800">Section C: Give Chemical Reasons</h3>
+                    <span class="font-bold text-slate-600 bg-slate-200 px-3 py-1 rounded">[10 Marks]</span>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="flex justify-between items-start pb-4 border-b border-slate-100">
+                        <p class="font-medium text-slate-800 pr-4 text-lg">1. Solid Sodium Chloride does not conduct electricity, but its aqueous solution does. Give a scientific reason.</p>
+                        <span class="text-slate-500 shrink-0 font-semibold">[2]</span>
+                    </div>
+                    <div class="flex justify-between items-start pb-4 border-b border-slate-100">
+                        <p class="font-medium text-slate-800 pr-4 text-lg">2. Why do ionic compounds have exceptionally high melting and boiling points compared to covalent compounds?</p>
+                        <span class="text-slate-500 shrink-0 font-semibold">[2]</span>
+                    </div>
+                    <div class="flex justify-between items-start pb-4 border-b border-slate-100">
+                        <p class="font-medium text-slate-800 pr-4 text-lg">3. Pure dry Hydrogen Chloride ($HCl$) gas is a non-conductor of electricity, but when dissolved in water, it conducts. Explain.</p>
+                        <span class="text-slate-500 shrink-0 font-semibold">[2]</span>
+                    </div>
+                    <div class="flex justify-between items-start pb-4 border-b border-slate-100">
+                        <p class="font-medium text-slate-800 pr-4 text-lg">4. Even though the $C-Cl$ bonds inside Carbon Tetrachloride ($CCl_4$) are individually polar, the molecule as a whole is non-polar. Explain why.</p>
+                        <span class="text-slate-500 shrink-0 font-semibold">[2]</span>
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <p class="font-medium text-slate-800 pr-4 text-lg">5. Why are Noble Gases chemically unreactive (inert)?</p>
+                        <span class="text-slate-500 shrink-0 font-semibold">[2]</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION D: Comparison & ID -->
+            <div class="bg-white border border-slate-200 rounded-xl shadow-sm mb-10 overflow-hidden">
+                <div class="bg-slate-100 border-b border-slate-200 px-6 py-4 flex justify-between items-center">
+                    <h3 class="font-bold text-xl text-slate-800">Section D: Comparison & Identification</h3>
+                    <span class="font-bold text-slate-600 bg-slate-200 px-3 py-1 rounded">[10 Marks]</span>
+                </div>
+                <div class="p-6 space-y-8">
+                    <!-- Q1 -->
+                    <div>
+                        <div class="flex justify-between items-start mb-5">
+                            <p class="font-medium text-slate-800 text-lg">1. Copy and complete the following comparison table: </p>
+                            <span class="text-slate-500 shrink-0 font-semibold">[4]</span>
+                        </div>
+                        <table class="w-full border-collapse border border-slate-300 text-base">
+                            <thead>
+                                <tr class="bg-slate-50">
+                                    <th class="border border-slate-300 p-3 text-left">Property</th>
+                                    <th class="border border-slate-300 p-3 text-left">Electrovalent Compounds</th>
+                                    <th class="border border-slate-300 p-3 text-left">Covalent Compounds</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="border border-slate-300 p-3 font-semibold text-slate-700">State of existence at room temp</td>
+                                    <td class="border border-slate-300 p-3 h-16"></td>
+                                    <td class="border border-slate-300 p-3 h-16"></td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-slate-300 p-3 font-semibold text-slate-700">Solubility in Water</td>
+                                    <td class="border border-slate-300 p-3 h-16"></td>
+                                    <td class="border border-slate-300 p-3 h-16"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Q2 -->
+                    <div class="flex justify-between items-start">
+                        <div class="pr-4">
+                            <p class="font-medium text-slate-800 mb-3 text-lg">2. Elements $X$ and $Y$ have atomic numbers 11 and 16 respectively.</p>
+                            <ul class="list-disc pl-6 space-y-2 text-slate-700 text-base">
+                                <li>Write the electronic configurations of X and Y.</li>
+                                <li>State the formula of the compound formed between them.</li>
+                                <li>Name the type of bond present in this compound.</li>
+                            </ul>
+                        </div>
+                        <span class="text-slate-500 shrink-0 font-semibold">[3]</span>
+                    </div>
+
+                    <!-- Q3 -->
+                    <div class="flex justify-between items-start pt-6 border-t border-slate-100">
+                        <div class="pr-4">
+                            <p class="font-medium text-slate-800 mb-3 text-lg">3. Consider the formation of Ammonium Chloride ($NH_4Cl$).</p>
+                            <ul class="list-disc pl-6 space-y-2 text-slate-700 text-base">
+                                <li>Name the three distinct types of bonds present in this molecule.</li>
+                                <li>Identify which atom acts as the electron donor in the coordinate bond.</li>
+                            </ul>
+                        </div>
+                        <span class="text-slate-500 shrink-0 font-semibold">[3]</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ANSWER KEY & MARKING SCHEME -->
+            <div class="bg-fuchsia-50 border border-fuchsia-200 rounded-xl p-6 md:p-8 mt-16 relative shadow-sm">
+                <details class="group">
+                    <summary class="cursor-pointer text-xl font-extrabold text-fuchsia-800 hover:text-fuchsia-900 flex items-center select-none py-2 transition-colors">
+                        <i class="ph-bold ph-lock-key mr-3 group-open:hidden text-3xl"></i>
+                        <i class="ph-bold ph-lock-key-open mr-3 hidden group-open:inline-block text-3xl"></i>
+                        Unlock Detailed Marking Scheme & Answer Key
+                    </summary>
+                    <div class="mt-8 space-y-10 border-t border-fuchsia-200 pt-8">
+                        
+                        <!-- Section A Ans -->
+                        <div>
+                            <h4 class="font-bold text-xl text-slate-900 border-b-2 border-slate-200 pb-2 mb-4">Section A (10 Marks)</h4>
+                            <p class="text-sm font-semibold text-rose-600 mb-4 uppercase tracking-wide">1 Mark for each correct answer. No half marks.</p>
+                            <div class="grid grid-cols-2 md:grid-cols-5 gap-3 text-base">
+                                <div class="bg-white p-3 border border-slate-200 rounded shadow-sm text-center"><span class="font-bold text-slate-400 mr-2">1.</span> a</div>
+                                <div class="bg-white p-3 border border-slate-200 rounded shadow-sm text-center"><span class="font-bold text-slate-400 mr-2">2.</span> a</div>
+                                <div class="bg-white p-3 border border-slate-200 rounded shadow-sm text-center"><span class="font-bold text-slate-400 mr-2">3.</span> b</div>
+                                <div class="bg-white p-3 border border-slate-200 rounded shadow-sm text-center"><span class="font-bold text-slate-400 mr-2">4.</span> c</div>
+                                <div class="bg-white p-3 border border-slate-200 rounded shadow-sm text-center"><span class="font-bold text-slate-400 mr-2">5.</span> b</div>
+                                <div class="bg-white p-3 border border-slate-200 rounded shadow-sm text-center"><span class="font-bold text-slate-400 mr-2">6.</span> c</div>
+                                <div class="bg-white p-3 border border-slate-200 rounded shadow-sm text-center"><span class="font-bold text-slate-400 mr-2">7.</span> c</div>
+                                <div class="bg-white p-3 border border-slate-200 rounded shadow-sm text-center"><span class="font-bold text-slate-400 mr-2">8.</span> a</div>
+                                <div class="bg-white p-3 border border-slate-200 rounded shadow-sm text-center"><span class="font-bold text-slate-400 mr-2">9.</span> b</div>
+                                <div class="bg-white p-3 border border-slate-200 rounded shadow-sm text-center"><span class="font-bold text-slate-400 mr-2">10.</span> c</div>
+                            </div>
+                        </div>
+
+                        <!-- Section B Ans -->
+                        <div>
+                            <h4 class="font-bold text-xl text-slate-900 border-b-2 border-slate-200 pb-2 mb-4">Section B (10 Marks)</h4>
+                            <ul class="list-decimal pl-6 space-y-4 text-base text-slate-800">
+                                <li><strong>NaCl:</strong> $[Na]^+$ and $[:\ddot{Cl}:]^-$. <br><em class="text-sm text-fuchsia-700 block mt-1">(Marking: 1 mark for correct 8 electrons around Cl. 1 mark for showing square brackets and correct $+/-$ charges).</em></li>
+                                <li><strong>H₂O:</strong> Oxygen in center sharing 1 pair with two H atoms. <br><em class="text-sm text-fuchsia-700 block mt-1">(Marking: 1 mark for shared pairs. 1 mark for explicitly drawing TWO lone pairs on Oxygen).</em></li>
+                                <li><strong>NH₃:</strong> Nitrogen in center sharing 1 pair with three H atoms. <br><em class="text-sm text-fuchsia-700 block mt-1">(Marking: 1 mark for shared pairs. 1 mark for explicitly drawing ONE lone pair on Nitrogen).</em></li>
+                                <li><strong>CaO:</strong> $[Ca]^{2+}$ and $[:\ddot{O}:]^{2-}$. <br><em class="text-sm text-fuchsia-700 block mt-1">(Marking: 1 mark for 8 electrons around O. 1 mark for brackets and $2+/2-$ charges. If charges are just $+/-$, give 0).</em></li>
+                                <li><strong>H₃O⁺:</strong> H-O-H with a coordinate arrow ($\rightarrow$) pointing from O to the third H. <br><em class="text-sm text-fuchsia-700 block mt-1">(Marking: 1 mark for the coordinate arrow and 1 remaining lone pair on Oxygen. 1 mark for entire structure inside $[ \ ]^+$ bracket).</em></li>
+                            </ul>
+                        </div>
+
+                        <!-- Section C Ans -->
+                        <div>
+                            <h4 class="font-bold text-xl text-slate-900 border-b-2 border-slate-200 pb-2 mb-4">Section C (10 Marks)</h4>
+                            <ul class="list-decimal pl-6 space-y-5 text-base text-slate-800">
+                                <li>In solid state, ions are locked in a rigid crystal lattice by strong electrostatic forces (no mobile ions). In aqueous solution, the lattice breaks, releasing free, mobile ions to carry charge. <br><em class="text-sm text-fuchsia-700 block mt-1">(1 mark for "no free ions in solid", 1 mark for "free mobile ions in aqueous").</em></li>
+                                <li>A large amount of thermal energy is required to break the strong electrostatic forces of attraction between oppositely charged ions in the lattice. <br><em class="text-sm text-fuchsia-700 block mt-1">(1 mark for "strong electrostatic forces", 1 mark for "large energy required to break them").</em></li>
+                                <li>Dry HCl is a polar covalent molecule (no free ions). Water is a polar solvent that causes HCl to ionize into $H_3O^+$ and $Cl^-$ ions, enabling conductivity. <br><em class="text-sm text-fuchsia-700 block mt-1">(1 mark for "no ions in dry gas", 1 mark for "water causes ionization").</em></li>
+                                <li>$CCl_4$ has a perfectly symmetrical tetrahedral shape. The individual bond polarities pull equally in opposite directions and cancel each other out entirely (net dipole moment is zero). <br><em class="text-sm text-fuchsia-700 block mt-1">(1 mark for "symmetrical structure", 1 mark for "polarities cancel out").</em></li>
+                                <li>They already possess a stable octet (or duplet for He) in their outermost valence shell. They do not need to lose, gain, or share electrons. <br><em class="text-sm text-fuchsia-700 block mt-1">(1 mark for "stable electronic configuration / octet", 1 mark for "no need to transfer/share").</em></li>
+                            </ul>
+                        </div>
+
+                        <!-- Section D Ans -->
+                        <div>
+                            <h4 class="font-bold text-xl text-slate-900 border-b-2 border-slate-200 pb-2 mb-4">Section D (10 Marks)</h4>
+                            <ul class="space-y-6 text-base text-slate-800">
+                                <li><strong>1. Table (4 Marks):</strong> 
+                                    <ul class="list-disc pl-6 mt-2 text-slate-700 space-y-1">
+                                        <li>State: Electrovalent = Hard crystalline solids. Covalent = Gases, liquids, soft solids. <em class="text-sm text-fuchsia-700 ml-2">(1 mark each)</em></li>
+                                        <li>Solubility: Electrovalent = Soluble in water. Covalent = Insoluble in water (soluble in organic solvents). <em class="text-sm text-fuchsia-700 ml-2">(1 mark each)</em></li>
+                                    </ul>
+                                </li>
+                                <li><strong>2. Element X and Y (3 Marks):</strong>
+                                    <ul class="list-disc pl-6 mt-2 text-slate-700 space-y-1">
+                                        <li>Config X (11) = 2, 8, 1. Config Y (16) = 2, 8, 6. <em class="text-sm text-fuchsia-700 ml-2">(1 mark)</em></li>
+                                        <li>Formula: X has valency +1, Y has valency -2. Formula is $X_2Y$. <em class="text-sm text-fuchsia-700 ml-2">(1 mark)</em></li>
+                                        <li>Bond Type: Electrovalent / Ionic Bond. <em class="text-sm text-fuchsia-700 ml-2">(1 mark)</em></li>
+                                    </ul>
+                                </li>
+                                <li><strong>3. NH₄Cl (3 Marks):</strong>
+                                    <ul class="list-disc pl-6 mt-2 text-slate-700 space-y-1">
+                                        <li>Types of bonds: Electrovalent (Ionic), Covalent, and Coordinate. <em class="text-sm text-fuchsia-700 ml-2">(2 marks for all three, 1 mark if two are named)</em></li>
+                                        <li>Donor atom: The Nitrogen atom (in $NH_3$). <em class="text-sm text-fuchsia-700 ml-2">(1 mark)</em></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </details>
+            </div>
+        </section>
 
     </main>
 
 </body>
 </html>
-
-
-```
