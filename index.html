@@ -3,22 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Practice Paper 1 Module 1 | Logic League</title>
+    <title>Acids, Bases & Salts - The Ultimate ICSE Masterclass</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    colors: {
-                        primary: { 400: '#60a5fa', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8' },
-                    }
-                }
-            }
-        }
-    </script>
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -29,6 +17,7 @@
     <!-- KaTeX for Math & Chemistry Rendering -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <!-- mhchem extension for \ce{} chemistry formulas -->
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/mhchem.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
     
@@ -41,342 +30,651 @@
                 ],
                 throwOnError: false
             });
+
+            // Navigation Logic
+            const buttons = document.querySelectorAll('.mod-btn');
+            const modules = document.querySelectorAll('.module-content');
+
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    buttons.forEach(btn => {
+                        btn.classList.remove('bg-slate-800', 'text-white', 'shadow-lg', 'scale-105');
+                        btn.classList.add('bg-white', 'text-slate-600');
+                    });
+                    
+                    button.classList.remove('bg-white', 'text-slate-600');
+                    button.classList.add('bg-slate-800', 'text-white', 'shadow-lg', 'scale-105');
+
+                    modules.forEach(mod => {
+                        mod.classList.add('hidden');
+                        mod.classList.remove('animate-fade-in');
+                    });
+
+                    const targetId = button.getAttribute('data-target');
+                    const targetModule = document.getElementById(targetId);
+                    targetModule.classList.remove('hidden');
+                    setTimeout(() => targetModule.classList.add('animate-fade-in'), 10);
+                });
+            });
         });
     </script>
 
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        
+        .content-text { color: #334155; font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.25rem; }
+        .content-text strong { color: #0f172a; }
+        
+        .content-math { background-color: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 1.5rem; margin: 1.5rem 0; text-align: center; font-size: 1.25rem; overflow-x: auto; box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05); }
+        
+        .content-tip { background-color: #fffbeb; border-left: 4px solid #f59e0b; border-radius: 0 0.75rem 0.75rem 0; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); position: relative; }
+        
+        .content-pyq { background-color: #f0fdfa; border: 1px solid #5eead4; border-radius: 0.75rem; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1); position: relative; }
+        
+        .block-tag { position: absolute; top: -10px; right: 16px; font-size: 0.65rem; font-weight: 800; padding: 2px 10px; border-radius: 9999px; text-transform: uppercase; letter-spacing: 0.05em; }
+
         details > summary { list-style: none; outline: none; }
         details > summary::-webkit-details-marker { display: none; }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-in { animation: fadeIn 0.4s ease-out forwards; }
     </style>
 </head>
 <body class="text-slate-800 antialiased min-h-screen flex flex-col">
 
-    <!-- Top Navigation Bar -->
     <nav class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
+                <a href="index.html" class="flex items-center text-slate-500 hover:text-fuchsia-600 font-semibold transition-colors">
+                    <i class="ph-bold ph-arrow-left mr-2"></i> Back to Hub
+                </a>
                 <div class="font-extrabold text-xl tracking-tight text-slate-900 flex items-center">
-                    L<i class="ph-fill ph-gear text-fuchsia-600 mx-0.5"></i>gic&nbsp;<span class="text-fuchsia-600">League</span>
-                </div>
-                <div class="text-sm font-semibold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">
-                    Assessment Module
+                    L<i class="ph-fill ph-gear text-fuchsia-600 mx-0.5 animate-[spin_4s_linear_infinite]"></i>gic&nbsp;<span class="text-fuchsia-600">League</span>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Main Content Area -->
-    <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
+    <main class="flex-grow max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
         
-        <section id="practice-paper">
-            <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
-                <div>
-                    <div class="inline-flex items-center bg-fuchsia-100 text-fuchsia-700 font-bold px-3 py-1 rounded-full text-xs mb-3 tracking-widest uppercase">
-                        <i class="ph-fill ph-exam mr-1.5 text-base"></i> Official Mock Test
-                    </div>
-                    <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 flex items-center">
-                        Practice Paper 1 Module 1
-                    </h1>
+        <header class="mb-10 text-center border-b border-slate-200 pb-8">
+            <div class="inline-flex items-center bg-fuchsia-100 text-fuchsia-700 font-bold px-3 py-1 rounded-full text-xs mb-4 tracking-widest uppercase">
+                <i class="ph-fill ph-flask mr-1.5 text-base"></i> Textbook Replacement Series
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">Acids, Bases & Salts</h1>
+            <p class="text-lg text-slate-500 font-medium">The Ultimate Deep-Dive for ICSE Grade 10 • Sambhav</p>
+        </header>
+
+        <div class="flex flex-wrap justify-center gap-3 mb-10">
+            <button class="mod-btn bg-slate-800 text-white shadow-lg scale-105 font-bold py-2 px-4 rounded-full border border-slate-700 transition-all duration-200 text-sm" data-target="block-1">1: Deep Dive into Acids</button>
+            <button class="mod-btn bg-white text-slate-600 font-bold py-2 px-4 rounded-full border border-slate-200 transition-all duration-200 text-sm" data-target="block-2">2: Bases & Alkalis</button>
+            <button class="mod-btn bg-white text-slate-600 font-bold py-2 px-4 rounded-full border border-slate-200 transition-all duration-200 text-sm" data-target="block-3">3: Indicators & pH</button>
+            <button class="mod-btn bg-white text-slate-600 font-bold py-2 px-4 rounded-full border border-slate-200 transition-all duration-200 text-sm" data-target="block-4">4: Types of Salts</button>
+            <button class="mod-btn bg-white text-slate-600 font-bold py-2 px-4 rounded-full border border-slate-200 transition-all duration-200 text-sm" data-target="block-5">5: Action of Acids on Salts</button>
+            <button class="mod-btn bg-white text-slate-600 font-bold py-2 px-4 rounded-full border border-slate-200 transition-all duration-200 text-sm" data-target="block-6">6: Salt Prep (Master Guide)</button>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- BLOCK 1: ACIDS                             -->
+        <!-- ========================================== -->
+        <section id="block-1" class="module-content animate-fade-in">
+            <h2 class="text-3xl font-extrabold text-slate-800 border-b-2 border-slate-200 pb-3 mb-6 flex items-center">
+                <div class="bg-red-100 p-2 rounded-lg mr-4"><i class="ph-fill ph-drop text-red-600"></i></div>
+                Module 1: The World of Acids
+            </h2>
+
+            <div class="content-text">
+                <p>The term 'acid' comes from the Latin word <em>acidus</em>, meaning sour. But in Grade 10, physical properties are not enough. We must define acids strictly by their molecular behavior in water (Arrhenius Theory).</p>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mt-10 mb-4 bg-slate-100 py-3 px-5 rounded-xl border border-slate-200">1.1 The Strict ICSE Definition</h3>
+            <div class="content-text">
+                <p>An acid is a compound which when dissolved in water yields <strong>Hydronium ions ($\ce{H3O+}$)</strong> as the <em>only positively charged ions</em>.</p>
+                <p><strong>The Chemistry Behind It:</strong> Pure acids (like $\ce{HCl}$ gas or glacial $\ce{H2SO4}$) are covalent compounds. They do not contain ions. However, when added to water, the polar water molecules force them to undergo <em>ionization</em>. The acid releases a bare proton ($\ce{H+}$). Because a bare proton is incredibly unstable, it instantly bonds with the lone pair of a water molecule via a coordinate bond to form the Hydronium ion.</p>
+            </div>
+
+            <div class="content-math">
+                $ \ce{HCl + H2O -> H3O+ + Cl-} $<br><br>
+                $ \text{(Or simply: } \ce{HCl -> H+ + Cl-} \text{)} $
+            </div>
+
+            <div class="content-tip">
+                <div class="block-tag bg-amber-200 text-amber-800 border border-amber-300">Crucial Keyword Trap</div>
+                <h4 class="font-bold text-amber-900 mb-1 flex items-center">
+                    <i class="ph-fill ph-warning-circle mr-2 text-xl text-amber-500"></i> The Word "Only"
+                </h4>
+                <p class="text-sm text-amber-800">If you define an acid as "a compound that produces Hydronium ions in water," you will lose marks. You MUST write "as the <strong>only</strong> positively charged ions." For example, Sodium Bisulphate ($\ce{NaHSO4}$) produces $\ce{H3O+}$, but it also produces $\ce{Na+}$. Therefore, it is NOT a pure acid; it is an acid salt.</p>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mt-10 mb-4 bg-slate-100 py-3 px-5 rounded-xl border border-slate-200">1.2 Classification of Acids</h3>
+            <div class="content-text">
+                <p>Acids are classified in several different ways. You must know all of them to handle complex reasoning questions.</p>
+                
+                <p class="font-bold text-lg text-slate-800 mt-6 mb-2">A. Depending on Source:</p>
+                <ul class="list-disc pl-8 space-y-2 mb-6">
+                    <li><strong>Organic Acids:</strong> Found in plants and animals. They contain Carbon. They are naturally <strong>weak acids</strong> (do not ionize completely). Examples: Acetic acid ($\ce{CH3COOH}$), Citric acid, Oxalic acid.</li>
+                    <li><strong>Inorganic (Mineral) Acids:</strong> Derived from minerals in the earth. They do not contain Carbon (with the exception of Carbonic Acid $\ce{H2CO3}$). They are usually <strong>strong acids</strong>. Examples: $\ce{HCl}$, $\ce{HNO3}$, $\ce{H2SO4}$.</li>
+                </ul>
+
+                <p class="font-bold text-lg text-slate-800 mt-6 mb-2">B. Depending on Strength (Degree of Ionization $\alpha$):</p>
+                <ul class="list-disc pl-8 space-y-2 mb-6">
+                    <li><strong>Strong Acids:</strong> Ionize almost completely ($>30\%$) in aqueous solutions. They contain a high concentration of hydronium ions and <strong>only ions</strong>. Example: $\ce{HCl (aq) -> H+ + Cl-}$.</li>
+                    <li><strong>Weak Acids:</strong> Ionize only partially ($<5\%$) in aqueous solutions. They contain a low concentration of hydronium ions and a mixture of <strong>ions AND un-ionized molecules</strong>. Example: $\ce{CH3COOH \rightleftharpoons CH3COO- + H+}$.</li>
+                </ul>
+
+                <p class="font-bold text-lg text-slate-800 mt-6 mb-2 border-b border-slate-200 pb-2 text-red-700">C. Depending on Basicity (EXTREMELY IMPORTANT):</p>
+                <p><strong>Basicity</strong> is defined as the number of ionizable hydrogen atoms ($\ce{H+}$) present in one molecule of an acid.</p>
+                
+                <div class="overflow-x-auto shadow-sm rounded-xl mt-4 mb-8 border border-slate-300">
+                    <table class="min-w-full bg-white">
+                        <thead>
+                            <tr class="bg-slate-800 text-white">
+                                <th class="py-3 px-4 font-bold text-left">Basicity</th>
+                                <th class="py-3 px-4 font-bold border-l border-slate-600">Definition & Examples</th>
+                                <th class="py-3 px-4 font-bold border-l border-slate-600">Ionization Steps</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-slate-200">
+                                <td class="py-3 px-4 font-bold text-slate-800 bg-slate-50">Monobasic<br>(Basicity = 1)</td>
+                                <td class="py-3 px-4 text-slate-700 border-l border-slate-200">Produces exactly one $\ce{H+}$ per molecule.<br>Examples: $\ce{HCl}$, $\ce{HNO3}$, $\ce{CH3COOH}$.</td>
+                                <td class="py-3 px-4 text-slate-700 border-l border-slate-200 font-mono text-sm">Ionizes in 1 step.<br>$\ce{HCl -> H+ + Cl-}$<br>Forms only 1 type of salt (Normal salt).</td>
+                            </tr>
+                            <tr class="border-b border-slate-200">
+                                <td class="py-3 px-4 font-bold text-slate-800 bg-slate-50">Dibasic<br>(Basicity = 2)</td>
+                                <td class="py-3 px-4 text-slate-700 border-l border-slate-200">Produces two $\ce{H+}$ per molecule.<br>Examples: $\ce{H2SO4}$, $\ce{H2CO3}$, $\ce{H2SO3}$.</td>
+                                <td class="py-3 px-4 text-slate-700 border-l border-slate-200 font-mono text-sm">Ionizes in 2 steps.<br>Step 1: $\ce{H2SO4 \rightleftharpoons H+ + HSO4-}$<br>Step 2: $\ce{HSO4- \rightleftharpoons H+ + SO4^{2-}}$<br>Forms 2 types of salts (Acid salt, Normal salt).</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 font-bold text-slate-800 bg-slate-50">Tribasic<br>(Basicity = 3)</td>
+                                <td class="py-3 px-4 text-slate-700 border-l border-slate-200">Produces three $\ce{H+}$ per molecule.<br>Examples: $\ce{H3PO4}$ (Phosphoric acid).</td>
+                                <td class="py-3 px-4 text-slate-700 border-l border-slate-200 font-mono text-sm">Ionizes in 3 steps.<br>Forms 3 types of salts.</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <div class="bg-slate-900 text-white font-bold px-5 py-3 rounded-xl text-lg text-center shrink-0 shadow-md">
-                    Total: 40 Marks
+
+                <div class="bg-rose-50 border border-rose-200 p-5 rounded-xl mb-6 shadow-sm">
+                    <h4 class="font-bold text-rose-900 mb-2 flex items-center">
+                        <i class="ph-fill ph-question text-rose-500 mr-2 text-xl"></i> The Acetic Acid Paradox
+                    </h4>
+                    <p class="text-sm text-rose-800">Acetic acid ($\ce{CH3COOH}$) clearly contains <strong>4</strong> Hydrogen atoms. Why is its basicity only <strong>1</strong>? <br><br><strong>Answer:</strong> Basicity relies only on <em>ionizable</em> hydrogens. In acetic acid, the three hydrogens attached to the Carbon atom are held by strong, non-polar covalent bonds and cannot be broken by water. Only the single Hydrogen attached to the highly electronegative Oxygen atom ($-\ce{COOH}$ group) can break off as an $\ce{H+}$ ion.</p>
+                </div>
+            </div>
+
+            <!-- Self-Assessment: Block 1 -->
+            <div class="bg-indigo-50 border border-indigo-200 p-8 rounded-2xl mt-12 shadow-sm">
+                <h4 class="font-bold text-indigo-900 mb-6 flex items-center text-2xl">
+                    <i class="ph-fill ph-brain text-indigo-600 mr-3 text-3xl"></i> Check Your Grip: Acids
+                </h4>
+                <div class="space-y-4">
+                    <div class="bg-white p-5 rounded-xl border border-indigo-100 shadow-sm hover:border-indigo-300 transition-all">
+                        <p class="font-semibold text-slate-800 mb-3">1. Explain why pure anhydrous $\ce{HCl}$ gas does not change the color of dry blue litmus paper, but dilute $\ce{HCl}$ does.</p>
+                        <details class="group">
+                            <summary class="cursor-pointer text-sm font-bold text-indigo-600 hover:text-indigo-800 flex items-center"><i class="ph-bold ph-caret-right mr-1 transition-transform group-open:rotate-90"></i> Reveal Answer</summary>
+                            <div class="mt-3 p-4 bg-indigo-50/50 rounded-lg text-sm text-slate-700 border border-indigo-100">
+                                <strong>Answer:</strong> Pure anhydrous $\ce{HCl}$ is a covalent molecule and contains no free ions. The acidic property (turning litmus red) is caused <em>only</em> by the presence of Hydronium ions ($\ce{H3O+}$). Dilute $\ce{HCl}$ contains water, which forces the $\ce{HCl}$ to ionize and produce these $\ce{H3O+}$ ions.
+                            </div>
+                        </details>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl border border-indigo-100 shadow-sm hover:border-indigo-300 transition-all">
+                        <p class="font-semibold text-slate-800 mb-3">2. Name a dibasic, weak, inorganic acid.</p>
+                        <details class="group">
+                            <summary class="cursor-pointer text-sm font-bold text-indigo-600 hover:text-indigo-800 flex items-center"><i class="ph-bold ph-caret-right mr-1 transition-transform group-open:rotate-90"></i> Reveal Answer</summary>
+                            <div class="mt-3 p-4 bg-indigo-50/50 rounded-lg text-sm text-slate-700 border border-indigo-100">
+                                <strong>Answer:</strong> Carbonic Acid ($\ce{H2CO3}$) or Sulphurous Acid ($\ce{H2SO3}$).
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- BLOCK 2: BASES & ALKALIS                   -->
+        <!-- ========================================== -->
+        <section id="block-2" class="module-content hidden">
+            <h2 class="text-3xl font-extrabold text-slate-800 border-b-2 border-slate-200 pb-3 mb-6 flex items-center">
+                <div class="bg-blue-100 p-2 rounded-lg mr-4"><i class="ph-fill ph-intersect text-blue-600"></i></div>
+                Module 2: Bases & Alkalis
+            </h2>
+
+            <div class="content-text">
+                <p>Acids and Bases are chemical opposites. While acids produce $\ce{H+}$, bases exist to neutralize them.</p>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mt-10 mb-4 bg-slate-100 py-3 px-5 rounded-xl border border-slate-200">2.1 The Definition of a Base</h3>
+            <div class="content-text">
+                <p>A <strong>Base</strong> is defined as either a metallic oxide (e.g., $\ce{CuO}$, $\ce{MgO}$) or a metallic hydroxide (e.g., $\ce{Zn(OH)2}$, $\ce{Pb(OH)2}$) which reacts with an acid to form salt and water <em>only</em>. This process is called Neutralization.</p>
+                <div class="content-math">
+                    $ \ce{CuO + 2HCl -> CuCl2 + H2O} $
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mt-10 mb-4 bg-slate-100 py-3 px-5 rounded-xl border border-slate-200">2.2 The Definition of an Alkali</h3>
+            <div class="content-text">
+                <p>An <strong>Alkali</strong> is simply a <em>water-soluble base</em>. Because it dissolves in water, we can define it using Arrhenius theory: An alkali is a compound which when dissolved in water yields <strong>Hydroxyl ions ($\ce{OH-}$ )</strong> as the <em>only negatively charged ions</em>.</p>
+                <div class="bg-blue-50 border-l-4 border-blue-600 p-4 rounded-r-lg mt-4 mb-4 text-blue-900 font-semibold text-lg text-center shadow-sm">
+                    Golden Rule: All alkalis are bases, but all bases are NOT alkalis.
+                </div>
+                <p>Examples of Alkalis: Sodium Hydroxide ($\ce{NaOH}$), Potassium Hydroxide ($\ce{KOH}$), Calcium Hydroxide ($\ce{Ca(OH)2}$), and Ammonium Hydroxide ($\ce{NH4OH}$ - the only non-metallic alkali).</p>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mt-10 mb-4 bg-slate-100 py-3 px-5 rounded-xl border border-slate-200">2.3 Classification by Acidity</h3>
+            <div class="content-text">
+                <p>Just as acids have "Basicity", bases have "Acidity". <strong>Acidity</strong> of a base is the number of replaceable hydroxyl ($\ce{OH-}$) ions present in one molecule.</p>
+                <ul class="list-disc pl-8 space-y-3 mb-6">
+                    <li><strong>Monoacidic Base (Acidity = 1):</strong> Yields one $\ce{OH-}$ ion. E.g., $\ce{NaOH}$, $\ce{KOH}$, $\ce{NH4OH}$.</li>
+                    <li><strong>Diacidic Base (Acidity = 2):</strong> Yields two $\ce{OH-}$ ions. E.g., $\ce{Ca(OH)2}$, $\ce{Mg(OH)2}$, $\ce{Cu(OH)2}$.</li>
+                    <li><strong>Triacidic Base (Acidity = 3):</strong> Yields three $\ce{OH-}$ ions. E.g., $\ce{Al(OH)3}$, $\ce{Fe(OH)3}$.</li>
+                </ul>
+            </div>
+
+            <!-- Self-Assessment: Block 2 -->
+            <div class="bg-indigo-50 border border-indigo-200 p-8 rounded-2xl mt-12 shadow-sm">
+                <h4 class="font-bold text-indigo-900 mb-6 flex items-center text-2xl">
+                    <i class="ph-fill ph-brain text-indigo-600 mr-3 text-3xl"></i> Check Your Grip: Bases
+                </h4>
+                <div class="space-y-4">
+                    <div class="bg-white p-5 rounded-xl border border-indigo-100 shadow-sm hover:border-indigo-300 transition-all">
+                        <p class="font-semibold text-slate-800 mb-3">1. Lead oxide ($\ce{PbO}$) reacts with Hydrochloric acid to form Lead chloride and water. Can we classify $\ce{PbO}$ as an alkali? Give a reason.</p>
+                        <details class="group">
+                            <summary class="cursor-pointer text-sm font-bold text-indigo-600 hover:text-indigo-800 flex items-center"><i class="ph-bold ph-caret-right mr-1 transition-transform group-open:rotate-90"></i> Reveal Answer</summary>
+                            <div class="mt-3 p-4 bg-indigo-50/50 rounded-lg text-sm text-slate-700 border border-indigo-100">
+                                <strong>Answer:</strong> No, $\ce{PbO}$ is NOT an alkali. While it acts as a base by neutralizing the acid, it is <strong>insoluble in water</strong>. Alkalis are strictly defined as bases that dissolve in water to produce hydroxyl ions.
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- BLOCK 3: INDICATORS & PH                   -->
+        <!-- ========================================== -->
+        <section id="block-3" class="module-content hidden">
+            <h2 class="text-3xl font-extrabold text-slate-800 border-b-2 border-slate-200 pb-3 mb-6 flex items-center">
+                <div class="bg-violet-100 p-2 rounded-lg mr-4"><i class="ph-fill ph-palette text-violet-600"></i></div>
+                Module 3: Indicators & The pH Scale
+            </h2>
+
+            <div class="content-text">
+                <p>We cannot taste chemicals to determine if they are acidic or alkaline. We use chemical dyes called <strong>Indicators</strong>, which undergo a structural change and alter their color depending on whether they are exposed to Hydronium ions ($\ce{H3O+}$) or Hydroxyl ions ($\ce{OH-}$).</p>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mt-10 mb-4 bg-slate-100 py-3 px-5 rounded-xl border border-slate-200">3.1 ICSE Standard Indicators Table</h3>
+            
+            <div class="overflow-x-auto mb-8 shadow-sm rounded-xl">
+                <table class="min-w-full bg-white border border-slate-200 text-center">
+                    <thead>
+                        <tr class="bg-slate-800 text-white">
+                            <th class="py-4 px-5 font-bold text-left">Indicator</th>
+                            <th class="py-4 px-5 font-bold border-l border-slate-600">Neutral (Original Color)</th>
+                            <th class="py-4 px-5 font-bold border-l border-slate-600 bg-red-900">In Acid ($\ce{H3O+}$)</th>
+                            <th class="py-4 px-5 font-bold border-l border-slate-600 bg-blue-900">In Alkali ($\ce{OH-}$ )</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-slate-200">
+                            <td class="py-4 px-5 font-bold text-slate-800 bg-slate-50 text-left">Litmus (from Lichen)</td>
+                            <td class="py-4 px-5 text-purple-600 font-semibold border-l border-slate-200">Purple</td>
+                            <td class="py-4 px-5 text-red-600 font-bold border-l border-slate-200">Red</td>
+                            <td class="py-4 px-5 text-blue-600 font-bold border-l border-slate-200">Blue</td>
+                        </tr>
+                        <tr class="border-b border-slate-200">
+                            <td class="py-4 px-5 font-bold text-slate-800 bg-slate-50 text-left">Methyl Orange</td>
+                            <td class="py-4 px-5 text-orange-500 font-semibold border-l border-slate-200">Orange</td>
+                            <td class="py-4 px-5 text-pink-600 font-bold border-l border-slate-200">Pinkish-Red</td>
+                            <td class="py-4 px-5 text-yellow-500 font-bold border-l border-slate-200">Yellow</td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 px-5 font-bold text-slate-800 bg-slate-50 text-left">Phenolphthalein</td>
+                            <td class="py-4 px-5 text-slate-400 font-semibold border-l border-slate-200">Colorless</td>
+                            <td class="py-4 px-5 text-slate-400 font-bold border-l border-slate-200">Colorless</td>
+                            <td class="py-4 px-5 text-pink-500 font-bold border-l border-slate-200">Pink</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mt-10 mb-4 bg-slate-100 py-3 px-5 rounded-xl border border-slate-200">3.2 The pH Scale & Universal Indicator</h3>
+            <div class="content-text">
+                <p>Standard indicators tell you <em>if</em> a substance is an acid or an alkali, but not <em>how strong</em> it is. In 1909, Sorensen devised the <strong>pH scale</strong> (power of Hydrogen) to measure the exact concentration of Hydrogen/Hydronium ions in a solution. Mathematically, $pH = -\log[H^+]$. The scale runs from 0 to 14.</p>
+                <ul class="list-disc pl-8 mb-6 space-y-2">
+                    <li><strong>pH = 7:</strong> Neutral (Pure distilled water). Concentration of $\ce{H^+}$ exactly equals the concentration of $\ce{OH-}$.</li>
+                    <li><strong>pH < 7:</strong> Acidic. The closer to 0, the stronger the acid. ($\ce{H+}$ dominates).</li>
+                    <li><strong>pH > 7:</strong> Alkaline/Basic. The closer to 14, the stronger the alkali. ($\ce{OH-}$ dominates).</li>
+                </ul>
+                <p>To measure this visually, we use a <strong>Universal Indicator</strong> or pH paper. It is a mixture of several chemical dyes that shows a specific, distinct color for every pH value, mimicking the colors of the rainbow (VIBGYOR):</p>
+            </div>
+
+            <!-- pH Visual Bar -->
+            <div class="flex h-16 w-full rounded-lg overflow-hidden shadow-inner mb-2 border border-slate-300">
+                <div class="flex-1 bg-red-600 flex flex-col items-center justify-center text-white font-bold text-xs"><span class="text-[10px] font-normal opacity-80 mb-1">Strong</span>pH 0-2</div>
+                <div class="flex-1 bg-orange-500 flex flex-col items-center justify-center text-white font-bold text-xs"><span class="text-[10px] font-normal opacity-80 mb-1">Weak</span>pH 3-4</div>
+                <div class="flex-1 bg-yellow-400 flex flex-col items-center justify-center text-slate-800 font-bold text-xs"><span class="text-[10px] font-normal opacity-80 mb-1">V. Weak</span>pH 5-6</div>
+                <div class="flex-1 bg-green-500 flex flex-col items-center justify-center text-white font-bold text-xs border-x-4 border-slate-800"><span class="text-[10px] font-normal opacity-80 mb-1">Pure</span>pH 7</div>
+                <div class="flex-1 bg-blue-400 flex flex-col items-center justify-center text-white font-bold text-xs"><span class="text-[10px] font-normal opacity-80 mb-1">V. Weak</span>pH 8-10</div>
+                <div class="flex-1 bg-indigo-500 flex flex-col items-center justify-center text-white font-bold text-xs"><span class="text-[10px] font-normal opacity-80 mb-1">Weak</span>pH 11-12</div>
+                <div class="flex-1 bg-purple-800 flex flex-col items-center justify-center text-white font-bold text-xs"><span class="text-[10px] font-normal opacity-80 mb-1">Strong</span>pH 13-14</div>
+            </div>
+            <div class="flex justify-between text-sm font-extrabold text-slate-700 mb-8 px-2">
+                <span>ACIDS (High $\ce{H+}$)</span>
+                <span>NEUTRAL</span>
+                <span>ALKALIS (High $\ce{OH-}$)</span>
+            </div>
+
+            <!-- Self-Assessment: Block 3 -->
+            <div class="bg-indigo-50 border border-indigo-200 p-8 rounded-2xl mt-12 shadow-sm">
+                <h4 class="font-bold text-indigo-900 mb-6 flex items-center text-2xl">
+                    <i class="ph-fill ph-brain text-indigo-600 mr-3 text-3xl"></i> Check Your Grip: pH
+                </h4>
+                <div class="space-y-4">
+                    <div class="bg-white p-5 rounded-xl border border-indigo-100 shadow-sm hover:border-indigo-300 transition-all">
+                        <p class="font-semibold text-slate-800 mb-3">1. Solution A has a pH of 3. Solution B has a pH of 5. Which solution has a higher concentration of Hydrogen ions?</p>
+                        <details class="group">
+                            <summary class="cursor-pointer text-sm font-bold text-indigo-600 hover:text-indigo-800 flex items-center"><i class="ph-bold ph-caret-right mr-1 transition-transform group-open:rotate-90"></i> Reveal Answer</summary>
+                            <div class="mt-3 p-4 bg-indigo-50/50 rounded-lg text-sm text-slate-700 border border-indigo-100">
+                                <strong>Answer:</strong> Solution A. On the pH scale, lower values indicate a much higher concentration of $\ce{H+}$ ions (a stronger acid).
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- BLOCK 4: SALTS & TYPES                     -->
+        <!-- ========================================== -->
+        <section id="block-4" class="module-content hidden">
+            <h2 class="text-3xl font-extrabold text-slate-800 border-b-2 border-slate-200 pb-3 mb-6 flex items-center">
+                <div class="bg-pink-100 p-2 rounded-lg mr-4"><i class="ph-fill ph-circles-three-plus text-pink-600"></i></div>
+                Module 4: Salts & Their Types
+            </h2>
+
+            <div class="content-text">
+                <p>When an acid reacts with a base, they destroy each other's properties to form water. What is left behind is an ionic compound called a Salt.</p>
+            </div>
+
+            <div class="content-tip">
+                <div class="block-tag bg-amber-200 text-amber-800 border border-amber-300">Definition Focus</div>
+                <h4 class="font-bold text-amber-900 mb-1 flex items-center">
+                    <i class="ph-fill ph-lightbulb mr-2 text-xl text-amber-500"></i> The Formal Definition
+                </h4>
+                <p class="text-sm text-amber-800">A salt is a chemical compound formed by the <strong>partial or complete replacement</strong> of the ionizable hydrogen atoms of an acid by a metallic ion (like $\ce{Na+}$) or an ammonium ion ($\ce{NH4+}$).</p>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mt-10 mb-4 bg-slate-100 py-3 px-5 rounded-xl border border-slate-200">4.1 The Step-by-Step Formation of Salts</h3>
+            <p class="text-slate-700 mb-4">Let's observe Sulphuric Acid ($\ce{H2SO4}$). It is a dibasic acid, meaning it has TWO replaceable hydrogens. It can form two entirely different types of salts depending on how much base ($\ce{NaOH}$) we supply.</p>
+
+            <div class="space-y-6 mt-6">
+                <!-- Acid Salt -->
+                <div class="bg-white border-l-4 border-rose-500 p-6 rounded-r-xl shadow-sm">
+                    <h4 class="font-bold text-slate-800 text-xl mb-2 text-rose-700">Type 1: Acid Salts (Partial Replacement)</h4>
+                    <p class="text-slate-700 mb-3 text-sm">If we supply an <em>insufficient</em> amount of base, only ONE hydrogen atom is replaced. The resulting salt still contains an ionizable hydrogen. If you dissolve it in water, it will yield $\ce{H+}$ ions and turn blue litmus red!</p>
+                    <div class="bg-slate-50 p-3 rounded font-mono text-center border border-slate-200 mb-2">
+                        $ \ce{NaOH + H2SO4 -> NaHSO4 + H2O} $
+                    </div>
+                    <p class="text-sm text-slate-500 text-center mb-2">Forms Sodium Hydrogen Sulphate (Sodium Bisulphate).</p>
+                    <p class="text-sm text-slate-700 mt-2"><strong>Other Examples:</strong> Sodium bicarbonate ($\ce{NaHCO3}$), Potassium bisulphite ($\ce{KHSO3}$).</p>
+                </div>
+
+                <!-- Normal Salt -->
+                <div class="bg-white border-l-4 border-blue-500 p-6 rounded-r-xl shadow-sm">
+                    <h4 class="font-bold text-slate-800 text-xl mb-2 text-blue-700">Type 2: Normal Salts (Complete Replacement)</h4>
+                    <p class="text-slate-700 mb-3 text-sm">If we supply <em>excess or sufficient</em> base, BOTH hydrogen atoms are replaced. The salt contains NO replaceable hydrogen. Their aqueous solutions are generally neutral to litmus.</p>
+                    <div class="bg-slate-50 p-3 rounded font-mono text-center border border-slate-200 mb-2">
+                        $ \ce{2NaOH + H2SO4 -> Na2SO4 + 2H2O} $
+                    </div>
+                    <p class="text-sm text-slate-500 text-center mb-2">Forms Sodium Sulphate.</p>
+                    <p class="text-sm text-slate-700 mt-2"><strong>Other Examples:</strong> $\ce{NaCl}$, $\ce{CaCO3}$, $\ce{CuSO4}$.</p>
+                </div>
+
+                <!-- Basic Salt -->
+                <div class="bg-white border-l-4 border-emerald-500 p-6 rounded-r-xl shadow-sm">
+                    <h4 class="font-bold text-slate-800 text-xl mb-2 text-emerald-700">Type 3: Basic Salts</h4>
+                    <p class="text-slate-700 mb-3 text-sm">Formed by the <strong>incomplete neutralization of a polyacidic base</strong>. They still contain a replaceable hydroxyl ($\ce{OH-}$) group in their molecule.</p>
+                    <div class="bg-slate-50 p-3 rounded font-mono text-center border border-slate-200 mb-2">
+                        $ \ce{Pb(OH)2 + HCl -> Pb(OH)Cl + H2O} $
+                    </div>
+                    <p class="text-sm text-slate-500 text-center mb-2">Forms Basic lead chloride.</p>
+                    <p class="text-sm text-slate-700 mt-2"><strong>Other Examples:</strong> Basic copper chloride ($\ce{Cu(OH)Cl}$), Basic lead nitrate ($\ce{Pb(OH)NO3}$).</p>
+                </div>
+
+                <!-- Complex Salt -->
+                <div class="bg-white border-l-4 border-purple-500 p-6 rounded-r-xl shadow-sm">
+                    <h4 class="font-bold text-slate-800 text-xl mb-2 text-purple-700">Type 4: Complex Salts</h4>
+                    <p class="text-slate-700 mb-3 text-sm">These salts contain a simple ion outside brackets and a "complex ion" inside square brackets. When dissolved in water, the complex ion does NOT break apart into simpler ions. It remains a single entity.</p>
+                    <div class="bg-slate-50 p-3 rounded font-mono text-center border border-slate-200 mb-2">
+                        $ \ce{Na[Ag(CN)2] \rightleftharpoons Na+ + [Ag(CN)2]-} $
+                    </div>
+                    <p class="text-sm text-slate-700 mt-2"><strong>Examples:</strong> Sodium argentocyanide $\ce{Na[Ag(CN)2]}$, Potassium ferrocyanide $\ce{K4[Fe(CN)6]}$.</p>
                 </div>
             </div>
             
-            <p class="text-lg text-slate-600 mb-10 font-medium leading-relaxed bg-white p-5 rounded-xl border border-slate-200 shadow-sm">This comprehensive mock test mimics the exact layout and strictness of the ICSE Board Chemistry paper (Chemical Bonding). Complete all sections independently before unlocking the highly detailed Answer Key & Marking Scheme at the bottom.</p>
-
-            <!-- SECTION A: MCQs -->
-            <div class="bg-white border border-slate-200 rounded-xl shadow-sm mb-10 overflow-hidden">
-                <div class="bg-slate-100 border-b border-slate-200 px-6 py-4 flex justify-between items-center">
-                    <h3 class="font-bold text-xl text-slate-800">Section A: Multiple Choice Questions</h3>
-                    <span class="font-bold text-slate-600 bg-slate-200 px-3 py-1 rounded">[10 Marks]</span>
-                </div>
-                <div class="p-6 space-y-8">
-                    <div>
-                        <p class="font-semibold text-slate-800 mb-3 text-lg">1. The conditions most favorable for the formation of an ionic bond between two atoms are:</p>
-                        <ol class="list-[lower-alpha] pl-5 space-y-2 text-slate-700">
-                            <li class="pl-2">Low Ionization Potential of the metal and High Electron Affinity of the non-metal.</li>
-                            <li class="pl-2">High Ionization Potential of the metal and Low Electron Affinity of the non-metal.</li>
-                            <li class="pl-2">Low Ionization Potential and Low Electronegativity of both.</li>
-                            <li class="pl-2">High Ionization Potential and High Electron Affinity of both.</li>
-                        </ol>
-                    </div>
-                    <div>
-                        <p class="font-semibold text-slate-800 mb-3 text-lg">2. In the Hydronium ion ($H_3O^+$), the types of bonds present are:</p>
-                        <ol class="list-[lower-alpha] pl-5 space-y-2 text-slate-700">
-                            <li class="pl-2">Two single covalent bonds and one coordinate bond.</li>
-                            <li class="pl-2">Three single covalent bonds.</li>
-                            <li class="pl-2">Two ionic bonds and one coordinate bond.</li>
-                            <li class="pl-2">One ionic bond and two covalent bonds.</li>
-                        </ol>
-                    </div>
-                    <div>
-                        <p class="font-semibold text-slate-800 mb-3 text-lg">3. A compound X is a good conductor of electricity in the molten state but an insulator in the solid state. X is most likely:</p>
-                        <ol class="list-[lower-alpha] pl-5 space-y-2 text-slate-700">
-                            <li class="pl-2">Carbon tetrachloride ($CCl_4$)</li>
-                            <li class="pl-2">Sodium chloride ($NaCl$)</li>
-                            <li class="pl-2">Methane ($CH_4$)</li>
-                            <li class="pl-2">Ammonia ($NH_3$)</li>
-                        </ol>
-                    </div>
-                    <div>
-                        <p class="font-semibold text-slate-800 mb-3 text-lg">4. Which of the following molecules contains a triple covalent bond?</p>
-                        <ol class="list-[lower-alpha] pl-5 space-y-2 text-slate-700">
-                            <li class="pl-2">Water ($H_2O$)</li>
-                            <li class="pl-2">Oxygen ($O_2$)</li>
-                            <li class="pl-2">Nitrogen ($N_2$)</li>
-                            <li class="pl-2">Chlorine ($Cl_2$)</li>
-                        </ol>
-                    </div>
-                    <div>
-                        <p class="font-semibold text-slate-800 mb-3 text-lg">5. Methane ($CH_4$) is a non-polar compound because:</p>
-                        <ol class="list-[lower-alpha] pl-5 space-y-2 text-slate-700">
-                            <li class="pl-2">Carbon and Hydrogen have a massive electronegativity difference.</li>
-                            <li class="pl-2">It has a perfectly symmetrical tetrahedral structure, canceling out bond polarities.</li>
-                            <li class="pl-2">It contains an ionic bond.</li>
-                            <li class="pl-2">It has two lone pairs of electrons.</li>
-                        </ol>
-                    </div>
-                    <div>
-                        <p class="font-semibold text-slate-800 mb-3 text-lg">6. In the formation of the Ammonium ion ($NH_4^+$), the donor atom is:</p>
-                        <ol class="list-[lower-alpha] pl-5 space-y-2 text-slate-700">
-                            <li class="pl-2">Hydrogen</li>
-                            <li class="pl-2">The Hydrogen ion ($H^+$)</li>
-                            <li class="pl-2">Nitrogen</li>
-                            <li class="pl-2">Oxygen</li>
-                        </ol>
-                    </div>
-                    <div>
-                        <p class="font-semibold text-slate-800 mb-3 text-lg">7. Element A has atomic number 12 and Element B has atomic number 8. The formula of their compound is:</p>
-                        <ol class="list-[lower-alpha] pl-5 space-y-2 text-slate-700">
-                            <li class="pl-2">$A_2B$</li>
-                            <li class="pl-2">$AB_2$</li>
-                            <li class="pl-2">$AB$</li>
-                            <li class="pl-2">$A_2B_3$</li>
-                        </ol>
-                    </div>
-                    <div>
-                        <p class="font-semibold text-slate-800 mb-3 text-lg">8. Identify the compound that possesses ionic, covalent, and coordinate bonds all at once:</p>
-                        <ol class="list-[lower-alpha] pl-5 space-y-2 text-slate-700">
-                            <li class="pl-2">Ammonium chloride ($NH_4Cl$)</li>
-                            <li class="pl-2">Sodium hydroxide ($NaOH$)</li>
-                            <li class="pl-2">Water ($H_2O$)</li>
-                            <li class="pl-2">Carbon dioxide ($CO_2$)</li>
-                        </ol>
-                    </div>
-                    <div>
-                        <p class="font-semibold text-slate-800 mb-3 text-lg">9. Covalent compounds generally have low boiling points because:</p>
-                        <ol class="list-[lower-alpha] pl-5 space-y-2 text-slate-700">
-                            <li class="pl-2">The covalent bonds between the atoms are very weak.</li>
-                            <li class="pl-2">They have weak Van der Waals forces between their molecules.</li>
-                            <li class="pl-2">They are held by strong electrostatic forces.</li>
-                            <li class="pl-2">They exist as rigid lattices.</li>
-                        </ol>
-                    </div>
-                    <div>
-                        <p class="font-semibold text-slate-800 mb-3 text-lg">10. How many lone pairs of electrons are present on the central Oxygen atom in a water molecule ($H_2O$)?</p>
-                        <ol class="list-[lower-alpha] pl-5 space-y-2 text-slate-700">
-                            <li class="pl-2">Zero</li>
-                            <li class="pl-2">One</li>
-                            <li class="pl-2">Two</li>
-                            <li class="pl-2">Three</li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SECTION B: Electron Dot -->
-            <div class="bg-white border border-slate-200 rounded-xl shadow-sm mb-10 overflow-hidden">
-                <div class="bg-slate-100 border-b border-slate-200 px-6 py-4 flex justify-between items-center">
-                    <h3 class="font-bold text-xl text-slate-800">Section B: Electron Dot Diagrams</h3>
-                    <span class="font-bold text-slate-600 bg-slate-200 px-3 py-1 rounded">[10 Marks]</span>
-                </div>
-                <div class="p-6">
-                    <p class="text-slate-700 mb-6 font-medium text-lg">Draw the correct electron dot structure (Lewis structure) for the following molecules/ions. Show all valence electrons and clearly distinguish between shared pairs, lone pairs, and complete transfers where applicable.</p>
-                    <ol class="list-decimal pl-5 space-y-5 text-slate-800 font-semibold text-lg">
-                        <li class="pb-2 border-b border-slate-100">Sodium Chloride ($NaCl$) <span class="font-normal text-slate-500 float-right">[2]</span></li>
-                        <li class="pb-2 border-b border-slate-100">Water ($H_2O$) <span class="font-normal text-slate-500 float-right">[2]</span></li>
-                        <li class="pb-2 border-b border-slate-100">Ammonia ($NH_3$) <span class="font-normal text-slate-500 float-right">[2]</span></li>
-                        <li class="pb-2 border-b border-slate-100">Calcium Oxide ($CaO$) <span class="font-normal text-slate-500 float-right">[2]</span></li>
-                        <li class="pb-2">Hydronium Ion ($H_3O^+$) <span class="font-normal text-slate-500 float-right">[2]</span></li>
-                    </ol>
-                </div>
-            </div>
-
-            <!-- SECTION C: Reasoning -->
-            <div class="bg-white border border-slate-200 rounded-xl shadow-sm mb-10 overflow-hidden">
-                <div class="bg-slate-100 border-b border-slate-200 px-6 py-4 flex justify-between items-center">
-                    <h3 class="font-bold text-xl text-slate-800">Section C: Give Chemical Reasons</h3>
-                    <span class="font-bold text-slate-600 bg-slate-200 px-3 py-1 rounded">[10 Marks]</span>
-                </div>
-                <div class="p-6 space-y-6">
-                    <div class="flex justify-between items-start pb-4 border-b border-slate-100">
-                        <p class="font-medium text-slate-800 pr-4 text-lg">1. Solid Sodium Chloride does not conduct electricity, but its aqueous solution does. Give a scientific reason.</p>
-                        <span class="text-slate-500 shrink-0 font-semibold">[2]</span>
-                    </div>
-                    <div class="flex justify-between items-start pb-4 border-b border-slate-100">
-                        <p class="font-medium text-slate-800 pr-4 text-lg">2. Why do ionic compounds have exceptionally high melting and boiling points compared to covalent compounds?</p>
-                        <span class="text-slate-500 shrink-0 font-semibold">[2]</span>
-                    </div>
-                    <div class="flex justify-between items-start pb-4 border-b border-slate-100">
-                        <p class="font-medium text-slate-800 pr-4 text-lg">3. Pure dry Hydrogen Chloride ($HCl$) gas is a non-conductor of electricity, but when dissolved in water, it conducts. Explain.</p>
-                        <span class="text-slate-500 shrink-0 font-semibold">[2]</span>
-                    </div>
-                    <div class="flex justify-between items-start pb-4 border-b border-slate-100">
-                        <p class="font-medium text-slate-800 pr-4 text-lg">4. Even though the $C-Cl$ bonds inside Carbon Tetrachloride ($CCl_4$) are individually polar, the molecule as a whole is non-polar. Explain why.</p>
-                        <span class="text-slate-500 shrink-0 font-semibold">[2]</span>
-                    </div>
-                    <div class="flex justify-between items-start">
-                        <p class="font-medium text-slate-800 pr-4 text-lg">5. Why are Noble Gases chemically unreactive (inert)?</p>
-                        <span class="text-slate-500 shrink-0 font-semibold">[2]</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SECTION D: Comparison & ID -->
-            <div class="bg-white border border-slate-200 rounded-xl shadow-sm mb-10 overflow-hidden">
-                <div class="bg-slate-100 border-b border-slate-200 px-6 py-4 flex justify-between items-center">
-                    <h3 class="font-bold text-xl text-slate-800">Section D: Comparison & Identification</h3>
-                    <span class="font-bold text-slate-600 bg-slate-200 px-3 py-1 rounded">[10 Marks]</span>
-                </div>
-                <div class="p-6 space-y-8">
-                    <!-- Q1 -->
-                    <div>
-                        <div class="flex justify-between items-start mb-5">
-                            <p class="font-medium text-slate-800 text-lg">1. Copy and complete the following comparison table: </p>
-                            <span class="text-slate-500 shrink-0 font-semibold">[4]</span>
-                        </div>
-                        <table class="w-full border-collapse border border-slate-300 text-base">
-                            <thead>
-                                <tr class="bg-slate-50">
-                                    <th class="border border-slate-300 p-3 text-left">Property</th>
-                                    <th class="border border-slate-300 p-3 text-left">Electrovalent Compounds</th>
-                                    <th class="border border-slate-300 p-3 text-left">Covalent Compounds</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="border border-slate-300 p-3 font-semibold text-slate-700">State of existence at room temp</td>
-                                    <td class="border border-slate-300 p-3 h-16"></td>
-                                    <td class="border border-slate-300 p-3 h-16"></td>
-                                </tr>
-                                <tr>
-                                    <td class="border border-slate-300 p-3 font-semibold text-slate-700">Solubility in Water</td>
-                                    <td class="border border-slate-300 p-3 h-16"></td>
-                                    <td class="border border-slate-300 p-3 h-16"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    
-                    <!-- Q2 -->
-                    <div class="flex justify-between items-start">
-                        <div class="pr-4">
-                            <p class="font-medium text-slate-800 mb-3 text-lg">2. Elements $X$ and $Y$ have atomic numbers 11 and 16 respectively.</p>
-                            <ul class="list-disc pl-6 space-y-2 text-slate-700 text-base">
-                                <li>Write the electronic configurations of X and Y.</li>
-                                <li>State the formula of the compound formed between them.</li>
-                                <li>Name the type of bond present in this compound.</li>
-                            </ul>
-                        </div>
-                        <span class="text-slate-500 shrink-0 font-semibold">[3]</span>
-                    </div>
-
-                    <!-- Q3 -->
-                    <div class="flex justify-between items-start pt-6 border-t border-slate-100">
-                        <div class="pr-4">
-                            <p class="font-medium text-slate-800 mb-3 text-lg">3. Consider the formation of Ammonium Chloride ($NH_4Cl$).</p>
-                            <ul class="list-disc pl-6 space-y-2 text-slate-700 text-base">
-                                <li>Name the three distinct types of bonds present in this molecule.</li>
-                                <li>Identify which atom acts as the electron donor in the coordinate bond.</li>
-                            </ul>
-                        </div>
-                        <span class="text-slate-500 shrink-0 font-semibold">[3]</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ANSWER KEY & MARKING SCHEME -->
-            <div class="bg-fuchsia-50 border border-fuchsia-200 rounded-xl p-6 md:p-8 mt-16 relative shadow-sm">
-                <details class="group">
-                    <summary class="cursor-pointer text-xl font-extrabold text-fuchsia-800 hover:text-fuchsia-900 flex items-center select-none py-2 transition-colors">
-                        <i class="ph-bold ph-lock-key mr-3 group-open:hidden text-3xl"></i>
-                        <i class="ph-bold ph-lock-key-open mr-3 hidden group-open:inline-block text-3xl"></i>
-                        Unlock Detailed Marking Scheme & Answer Key
+            <div class="content-pyq mt-12">
+                <div class="block-tag bg-teal-200 text-teal-900 border border-teal-300">ICSE 2018</div>
+                <h4 class="font-bold text-teal-900 mb-2 flex items-center">
+                    <i class="ph-fill ph-exam mr-2 text-xl text-teal-600"></i> Past Year Question
+                </h4>
+                <p class="text-teal-800 font-medium text-lg">Define an acid salt and give one example.</p>
+                <details class="mt-4 group/ans">
+                    <summary class="text-sm font-bold text-teal-600 cursor-pointer flex items-center bg-teal-50 inline-flex px-4 py-2 rounded-lg border border-teal-200 hover:bg-teal-100 transition-colors">
+                        <i class="ph-bold ph-caret-right mr-2 transition-transform group-open/ans:rotate-90 text-lg"></i> Reveal Official Board Answer
                     </summary>
-                    <div class="mt-8 space-y-10 border-t border-fuchsia-200 pt-8">
-                        
-                        <!-- Section A Ans -->
-                        <div>
-                            <h4 class="font-bold text-xl text-slate-900 border-b-2 border-slate-200 pb-2 mb-4">Section A (10 Marks)</h4>
-                            <p class="text-sm font-semibold text-rose-600 mb-4 uppercase tracking-wide">1 Mark for each correct answer. No half marks.</p>
-                            <div class="grid grid-cols-2 md:grid-cols-5 gap-3 text-base">
-                                <div class="bg-white p-3 border border-slate-200 rounded shadow-sm text-center"><span class="font-bold text-slate-400 mr-2">1.</span> a</div>
-                                <div class="bg-white p-3 border border-slate-200 rounded shadow-sm text-center"><span class="font-bold text-slate-400 mr-2">2.</span> a</div>
-                                <div class="bg-white p-3 border border-slate-200 rounded shadow-sm text-center"><span class="font-bold text-slate-400 mr-2">3.</span> b</div>
-                                <div class="bg-white p-3 border border-slate-200 rounded shadow-sm text-center"><span class="font-bold text-slate-400 mr-2">4.</span> c</div>
-                                <div class="bg-white p-3 border border-slate-200 rounded shadow-sm text-center"><span class="font-bold text-slate-400 mr-2">5.</span> b</div>
-                                <div class="bg-white p-3 border border-slate-200 rounded shadow-sm text-center"><span class="font-bold text-slate-400 mr-2">6.</span> c</div>
-                                <div class="bg-white p-3 border border-slate-200 rounded shadow-sm text-center"><span class="font-bold text-slate-400 mr-2">7.</span> c</div>
-                                <div class="bg-white p-3 border border-slate-200 rounded shadow-sm text-center"><span class="font-bold text-slate-400 mr-2">8.</span> a</div>
-                                <div class="bg-white p-3 border border-slate-200 rounded shadow-sm text-center"><span class="font-bold text-slate-400 mr-2">9.</span> b</div>
-                                <div class="bg-white p-3 border border-slate-200 rounded shadow-sm text-center"><span class="font-bold text-slate-400 mr-2">10.</span> c</div>
-                            </div>
-                        </div>
-
-                        <!-- Section B Ans -->
-                        <div>
-                            <h4 class="font-bold text-xl text-slate-900 border-b-2 border-slate-200 pb-2 mb-4">Section B (10 Marks)</h4>
-                            <ul class="list-decimal pl-6 space-y-4 text-base text-slate-800">
-                                <li><strong>NaCl:</strong> $[Na]^+$ and $[:\ddot{Cl}:]^-$. <br><em class="text-sm text-fuchsia-700 block mt-1">(Marking: 1 mark for correct 8 electrons around Cl. 1 mark for showing square brackets and correct $+/-$ charges).</em></li>
-                                <li><strong>H₂O:</strong> Oxygen in center sharing 1 pair with two H atoms. <br><em class="text-sm text-fuchsia-700 block mt-1">(Marking: 1 mark for shared pairs. 1 mark for explicitly drawing TWO lone pairs on Oxygen).</em></li>
-                                <li><strong>NH₃:</strong> Nitrogen in center sharing 1 pair with three H atoms. <br><em class="text-sm text-fuchsia-700 block mt-1">(Marking: 1 mark for shared pairs. 1 mark for explicitly drawing ONE lone pair on Nitrogen).</em></li>
-                                <li><strong>CaO:</strong> $[Ca]^{2+}$ and $[:\ddot{O}:]^{2-}$. <br><em class="text-sm text-fuchsia-700 block mt-1">(Marking: 1 mark for 8 electrons around O. 1 mark for brackets and $2+/2-$ charges. If charges are just $+/-$, give 0).</em></li>
-                                <li><strong>H₃O⁺:</strong> H-O-H with a coordinate arrow ($\rightarrow$) pointing from O to the third H. <br><em class="text-sm text-fuchsia-700 block mt-1">(Marking: 1 mark for the coordinate arrow and 1 remaining lone pair on Oxygen. 1 mark for entire structure inside $[ \ ]^+$ bracket).</em></li>
-                            </ul>
-                        </div>
-
-                        <!-- Section C Ans -->
-                        <div>
-                            <h4 class="font-bold text-xl text-slate-900 border-b-2 border-slate-200 pb-2 mb-4">Section C (10 Marks)</h4>
-                            <ul class="list-decimal pl-6 space-y-5 text-base text-slate-800">
-                                <li>In solid state, ions are locked in a rigid crystal lattice by strong electrostatic forces (no mobile ions). In aqueous solution, the lattice breaks, releasing free, mobile ions to carry charge. <br><em class="text-sm text-fuchsia-700 block mt-1">(1 mark for "no free ions in solid", 1 mark for "free mobile ions in aqueous").</em></li>
-                                <li>A large amount of thermal energy is required to break the strong electrostatic forces of attraction between oppositely charged ions in the lattice. <br><em class="text-sm text-fuchsia-700 block mt-1">(1 mark for "strong electrostatic forces", 1 mark for "large energy required to break them").</em></li>
-                                <li>Dry HCl is a polar covalent molecule (no free ions). Water is a polar solvent that causes HCl to ionize into $H_3O^+$ and $Cl^-$ ions, enabling conductivity. <br><em class="text-sm text-fuchsia-700 block mt-1">(1 mark for "no ions in dry gas", 1 mark for "water causes ionization").</em></li>
-                                <li>$CCl_4$ has a perfectly symmetrical tetrahedral shape. The individual bond polarities pull equally in opposite directions and cancel each other out entirely (net dipole moment is zero). <br><em class="text-sm text-fuchsia-700 block mt-1">(1 mark for "symmetrical structure", 1 mark for "polarities cancel out").</em></li>
-                                <li>They already possess a stable octet (or duplet for He) in their outermost valence shell. They do not need to lose, gain, or share electrons. <br><em class="text-sm text-fuchsia-700 block mt-1">(1 mark for "stable electronic configuration / octet", 1 mark for "no need to transfer/share").</em></li>
-                            </ul>
-                        </div>
-
-                        <!-- Section D Ans -->
-                        <div>
-                            <h4 class="font-bold text-xl text-slate-900 border-b-2 border-slate-200 pb-2 mb-4">Section D (10 Marks)</h4>
-                            <ul class="space-y-6 text-base text-slate-800">
-                                <li><strong>1. Table (4 Marks):</strong> 
-                                    <ul class="list-disc pl-6 mt-2 text-slate-700 space-y-1">
-                                        <li>State: Electrovalent = Hard crystalline solids. Covalent = Gases, liquids, soft solids. <em class="text-sm text-fuchsia-700 ml-2">(1 mark each)</em></li>
-                                        <li>Solubility: Electrovalent = Soluble in water. Covalent = Insoluble in water (soluble in organic solvents). <em class="text-sm text-fuchsia-700 ml-2">(1 mark each)</em></li>
-                                    </ul>
-                                </li>
-                                <li><strong>2. Element X and Y (3 Marks):</strong>
-                                    <ul class="list-disc pl-6 mt-2 text-slate-700 space-y-1">
-                                        <li>Config X (11) = 2, 8, 1. Config Y (16) = 2, 8, 6. <em class="text-sm text-fuchsia-700 ml-2">(1 mark)</em></li>
-                                        <li>Formula: X has valency +1, Y has valency -2. Formula is $X_2Y$. <em class="text-sm text-fuchsia-700 ml-2">(1 mark)</em></li>
-                                        <li>Bond Type: Electrovalent / Ionic Bond. <em class="text-sm text-fuchsia-700 ml-2">(1 mark)</em></li>
-                                    </ul>
-                                </li>
-                                <li><strong>3. NH₄Cl (3 Marks):</strong>
-                                    <ul class="list-disc pl-6 mt-2 text-slate-700 space-y-1">
-                                        <li>Types of bonds: Electrovalent (Ionic), Covalent, and Coordinate. <em class="text-sm text-fuchsia-700 ml-2">(2 marks for all three, 1 mark if two are named)</em></li>
-                                        <li>Donor atom: The Nitrogen atom (in $NH_3$). <em class="text-sm text-fuchsia-700 ml-2">(1 mark)</em></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-
+                    <div class="mt-3 text-base text-teal-800 bg-white p-5 rounded-xl border border-teal-200 shadow-sm">
+                        An acid salt is a salt formed by the partial replacement of the replaceable hydrogen atoms of a polybasic acid by a metallic or ammonium ion. It still contains replaceable hydrogen. <br><br>Example: Sodium hydrogen sulphate ($\ce{NaHSO4}$).
                     </div>
                 </details>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- BLOCK 5: ACTION OF ACIDS ON SALTS          -->
+        <!-- ========================================== -->
+        <section id="block-5" class="module-content hidden">
+            <h2 class="text-3xl font-extrabold text-slate-800 border-b-2 border-slate-200 pb-3 mb-6 flex items-center">
+                <div class="bg-orange-100 p-2 rounded-lg mr-4"><i class="ph-fill ph-fire text-orange-600"></i></div>
+                Module 5: Action of Dilute Acids on Salts
+            </h2>
+
+            <div class="content-text">
+                <p>This module is effectively a preview of Analytical Chemistry. When dilute acids (like dilute $\ce{HCl}$ or $\ce{H2SO4}$) are poured over certain weak salts, they forcefully decompose the salt and release a characteristic gas. <strong>Memorizing the gas and its test is mandatory.</strong></p>
+            </div>
+
+            <div class="overflow-x-auto shadow-sm rounded-xl mt-6 border border-slate-300">
+                <table class="min-w-full bg-white">
+                    <thead>
+                        <tr class="bg-slate-800 text-white">
+                            <th class="py-4 px-5 font-bold text-left w-1/4">Salt Attacked</th>
+                            <th class="py-4 px-5 font-bold border-l border-slate-600 w-1/4">Gas Evolved</th>
+                            <th class="py-4 px-5 font-bold border-l border-slate-600 w-2/4">Chemical Test for the Gas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Carbonates -->
+                        <tr class="border-b border-slate-200">
+                            <td class="py-4 px-5 font-bold text-slate-800 bg-slate-50">1. Carbonates ($\ce{CO3^{2-}}$)<br>2. Bicarbonates ($\ce{HCO3-}$)<br><br><span class="text-xs font-normal text-slate-500 font-mono">e.g., $\ce{Na2CO3}$</span></td>
+                            <td class="py-4 px-5 text-slate-700 border-l border-slate-200">
+                                <strong>Carbon Dioxide ($\ce{CO2}$)</strong><br>
+                                <span class="text-sm text-slate-500">Colorless, odorless. Brisk effervescence (fizzing).</span>
+                            </td>
+                            <td class="py-4 px-5 text-slate-700 border-l border-slate-200 text-sm">
+                                When passed through clear <strong>Limewater</strong> ($\ce{Ca(OH)2}$), it turns the limewater <strong>milky</strong> due to the formation of insoluble Calcium Carbonate.<br><br>
+                                <em>Trap:</em> If passed in excess, the milkiness disappears!
+                            </td>
+                        </tr>
+                        <!-- Sulphites -->
+                        <tr class="border-b border-slate-200">
+                            <td class="py-4 px-5 font-bold text-slate-800 bg-slate-50">3. Sulphites ($\ce{SO3^{2-}}$)<br>4. Bisulphites ($\ce{HSO3-}$)<br><br><span class="text-xs font-normal text-slate-500 font-mono">e.g., $\ce{Na2SO3}$</span></td>
+                            <td class="py-4 px-5 text-slate-700 border-l border-slate-200">
+                                <strong>Sulphur Dioxide ($\ce{SO2}$)</strong><br>
+                                <span class="text-sm text-slate-500">Colorless. Suffocating smell of burning sulphur.</span>
+                            </td>
+                            <td class="py-4 px-5 text-slate-700 border-l border-slate-200 text-sm">
+                                When passed through acidified Potassium Dichromate ($\ce{K2Cr2O7}$) solution, it changes the color from <strong>Orange to Clear Green</strong>.
+                            </td>
+                        </tr>
+                        <!-- Sulphides -->
+                        <tr>
+                            <td class="py-4 px-5 font-bold text-slate-800 bg-slate-50">5. Sulphides ($\ce{S^{2-}}$)<br><br><span class="text-xs font-normal text-slate-500 font-mono">e.g., $\ce{ZnS}$</span></td>
+                            <td class="py-4 px-5 text-slate-700 border-l border-slate-200">
+                                <strong>Hydrogen Sulphide ($\ce{H2S}$)</strong><br>
+                                <span class="text-sm text-slate-500">Colorless. Extremely foul smell of <strong>rotten eggs</strong>.</span>
+                            </td>
+                            <td class="py-4 px-5 text-slate-700 border-l border-slate-200 text-sm">
+                                When exposed to filter paper soaked in Lead Acetate solution, it turns the paper <strong>silvery black</strong> due to the formation of Lead Sulphide ($\ce{PbS}$).
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Self-Assessment: Block 5 -->
+            <div class="bg-indigo-50 border border-indigo-200 p-8 rounded-2xl mt-12 shadow-sm">
+                <h4 class="font-bold text-indigo-900 mb-6 flex items-center text-2xl">
+                    <i class="ph-fill ph-brain text-indigo-600 mr-3 text-3xl"></i> Check Your Grip: Action of Acids
+                </h4>
+                <div class="space-y-4">
+                    <div class="bg-white p-5 rounded-xl border border-indigo-100 shadow-sm hover:border-indigo-300 transition-all">
+                        <p class="font-semibold text-slate-800 mb-3">1. You add dilute Nitric acid to an unknown white powder. You observe brisk effervescence and a colorless, odorless gas. Identify the possible anions in the powder.</p>
+                        <details class="group">
+                            <summary class="cursor-pointer text-sm font-bold text-indigo-600 hover:text-indigo-800 flex items-center"><i class="ph-bold ph-caret-right mr-1 transition-transform group-open:rotate-90"></i> Reveal Answer</summary>
+                            <div class="mt-3 p-4 bg-indigo-50/50 rounded-lg text-sm text-slate-700 border border-indigo-100">
+                                <strong>Answer:</strong> The brisk effervescence identifies the gas as Carbon Dioxide ($\ce{CO2}$). Therefore, the anion in the unknown powder must be either a <strong>Carbonate ($\ce{CO3^{2-}}$)</strong> or a <strong>Bicarbonate ($\ce{HCO3-}$ )</strong>.
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- BLOCK 6: PREPARATION OF SALTS              -->
+        <!-- ========================================== -->
+        <section id="block-6" class="module-content hidden">
+            <h2 class="text-3xl font-extrabold text-slate-800 border-b-2 border-slate-200 pb-3 mb-6 flex items-center">
+                <div class="bg-emerald-100 p-2 rounded-lg mr-4"><i class="ph-fill ph-magic-wand text-emerald-600"></i></div>
+                Module 6: Salt Preparation (Master Guide)
+            </h2>
+
+            <div class="content-text">
+                <p>The ICSE syllabus requires you to know <strong>six specific chemical methods</strong> to prepare normal salts. However, before you can choose a method to prepare a salt, you MUST know if the salt you are trying to make dissolves in water (Soluble) or not (Insoluble).</p>
+            </div>
+
+            <!-- Solubility Cheat Sheet -->
+            <div class="bg-slate-800 rounded-2xl p-8 mb-10 text-white shadow-lg border border-slate-700">
+                <h4 class="text-xl font-bold text-amber-400 mb-4 flex items-center border-b border-slate-600 pb-3"><i class="ph-fill ph-star mr-2 text-2xl"></i> The Solubility Cheat Sheet (Memorize!)</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm">
+                    <div>
+                        <p class="font-bold text-emerald-400 mb-2 border-b border-slate-600 inline-block pb-1">SOLUBLE SALTS</p>
+                        <ul class="space-y-2 text-slate-300">
+                            <li><span class="text-emerald-300 font-bold">ALL</span> salts of Sodium ($\ce{Na}$), Potassium ($\ce{K}$), and Ammonium ($\ce{NH4}$).</li>
+                            <li><span class="text-emerald-300 font-bold">ALL</span> Nitrates ($\ce{NO3}$).</li>
+                            <li><span class="text-emerald-300 font-bold">ALL</span> Chlorides/Bromides... <br><span class="text-xs text-rose-400 italic">(Exception: Silver, Lead, Mercury).</span></li>
+                            <li><span class="text-emerald-300 font-bold">ALL</span> Sulphates... <br><span class="text-xs text-rose-400 italic">(Exception: Barium, Lead, Calcium).</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="font-bold text-rose-400 mb-2 border-b border-slate-600 inline-block pb-1">INSOLUBLE SALTS (Precipitates)</p>
+                        <ul class="space-y-2 text-slate-300">
+                            <li><span class="text-rose-300 font-bold">ALL</span> Carbonates... <br><span class="text-xs text-emerald-400 italic">(Exception: Na, K, NH4).</span></li>
+                            <li><span class="text-rose-300 font-bold">ALL</span> Sulphites & Sulphides... <br><span class="text-xs text-emerald-400 italic">(Exception: Na, K, NH4).</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mt-10 mb-6 bg-slate-100 py-3 px-5 rounded-xl border border-slate-200">The 6 Preparation Methods</h3>
+
+            <div class="space-y-8">
+                <!-- Method 1 -->
+                <div class="bg-white border-l-4 border-blue-500 p-6 rounded-r-xl shadow-sm border-y border-r border-slate-200">
+                    <h4 class="font-bold text-slate-800 text-lg mb-2">1. Direct Combination (Synthesis)</h4>
+                    <p class="text-sm text-slate-600 mb-3">Heating a metal directly with a non-metal. Used primarily to make binary salts like Sulphides and Chlorides.</p>
+                    <div class="bg-slate-50 p-3 rounded font-mono text-center border border-slate-200 text-sm">
+                        $ \ce{Fe + S ->[\Delta] FeS} $<br>
+                        <span class="text-xs font-sans text-slate-500">Iron + Sulphur $\rightarrow$ Iron(II) Sulphide</span>
+                    </div>
+                </div>
+
+                <!-- Method 2 -->
+                <div class="bg-white border-l-4 border-blue-500 p-6 rounded-r-xl shadow-sm border-y border-r border-slate-200">
+                    <h4 class="font-bold text-slate-800 text-lg mb-2">2. Simple Displacement</h4>
+                    <p class="text-sm text-slate-600 mb-3">An active metal (must be above Hydrogen in the reactivity series, like Mg, Zn, Fe) reacts with a dilute acid to displace hydrogen gas.</p>
+                    <div class="bg-slate-50 p-3 rounded font-mono text-center border border-slate-200 text-sm">
+                        $ \ce{Zn + H2SO4 (dil) -> ZnSO4 + H2 \uparrow} $
+                    </div>
+                </div>
+
+                <!-- Method 3 (Crucial) -->
+                <div class="bg-white border-l-4 border-rose-500 p-6 rounded-r-xl shadow-sm border-y border-r border-slate-200">
+                    <h4 class="font-bold text-slate-800 text-lg mb-2">3. Precipitation (Double Decomposition) — <span class="text-rose-600">For Insoluble Salts</span></h4>
+                    <p class="text-sm text-slate-700 mb-3">If the salt you want to make is <strong>insoluble</strong> (e.g., Barium Sulphate or Lead Chloride), you MUST use this method. You mix two <em>soluble</em> solutions together. They swap ions, forming the insoluble salt which falls to the bottom as a precipitate ($\downarrow$), allowing you to easily filter it out.</p>
+                    <div class="bg-slate-50 p-3 rounded font-mono text-center border border-slate-200 text-sm">
+                        $ \ce{BaCl2 (aq) + H2SO4 (aq) -> BaSO4 \downarrow + 2HCl} $<br>
+                        <span class="text-xs font-sans text-slate-500">Barium Sulphate forms as a white precipitate.</span>
+                    </div>
+                </div>
+
+                <!-- Method 4 -->
+                <div class="bg-white border-l-4 border-emerald-500 p-6 rounded-r-xl shadow-sm border-y border-r border-slate-200">
+                    <h4 class="font-bold text-slate-800 text-lg mb-2">4. Neutralization of Insoluble Base</h4>
+                    <p class="text-sm text-slate-600 mb-3">Used for soluble salts of metals like Copper, Lead, or Zinc. You take a solid, insoluble oxide/hydroxide and warm it with dilute acid until it dissolves. Filter the excess solid, and evaporate the liquid to get crystals.</p>
+                    <div class="bg-slate-50 p-3 rounded font-mono text-center border border-slate-200 text-sm">
+                        $ \ce{CuO (s) + H2SO4 (dil) ->[\Delta] CuSO4 (aq) + H2O} $
+                    </div>
+                </div>
+
+                <!-- Method 5 (Crucial) -->
+                <div class="bg-white border-l-4 border-emerald-500 p-6 rounded-r-xl shadow-sm border-y border-r border-slate-200">
+                    <h4 class="font-bold text-slate-800 text-lg mb-2">5. Neutralization of an Alkali (Titration) — <span class="text-emerald-600">For Na, K, NH4 Salts</span></h4>
+                    <p class="text-sm text-slate-700 mb-3">If you want to make a soluble salt of Na, K, or NH4, you cannot use Method 4. Why? Because their bases are Alkalis (water-soluble). Since both the acid and the alkali are clear liquids, and the resulting salt is soluble, you can't just filter out the excess! You must use a burette and an indicator (Titration) to find the exact neutralization point drop-by-drop.</p>
+                    <div class="bg-slate-50 p-3 rounded font-mono text-center border border-slate-200 text-sm">
+                        $ \ce{NaOH (aq) + HCl (aq) -> NaCl (aq) + H2O} $
+                    </div>
+                </div>
+
+                <!-- Method 6 -->
+                <div class="bg-white border-l-4 border-emerald-500 p-6 rounded-r-xl shadow-sm border-y border-r border-slate-200">
+                    <h4 class="font-bold text-slate-800 text-lg mb-2">6. Action of Acid on Carbonates</h4>
+                    <p class="text-sm text-slate-600 mb-3">Reacting a carbonate or bicarbonate with dilute acid to form salt, water, and CO₂ gas.</p>
+                    <div class="bg-slate-50 p-3 rounded font-mono text-center border border-slate-200 text-sm">
+                        $ \ce{CaCO3 + 2HCl -> CaCl2 + H2O + CO2 \uparrow} $
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-pyq mt-12">
+                <div class="block-tag bg-teal-200 text-teal-900 border border-teal-300">ICSE 2021</div>
+                <h4 class="font-bold text-teal-900 mb-2 flex items-center">
+                    <i class="ph-fill ph-exam mr-2 text-xl text-teal-600"></i> Past Year Question
+                </h4>
+                <p class="text-teal-800 font-medium text-lg">Name the method used for the preparation of the following salts:<br> (i) Barium sulphate<br> (ii) Sodium sulphate.</p>
+                <details class="mt-4 group/ans">
+                    <summary class="text-sm font-bold text-teal-600 cursor-pointer flex items-center bg-teal-50 inline-flex px-4 py-2 rounded-lg border border-teal-200 hover:bg-teal-100 transition-colors">
+                        <i class="ph-bold ph-caret-right mr-2 transition-transform group-open/ans:rotate-90 text-lg"></i> Reveal Official Board Answer
+                    </summary>
+                    <div class="mt-3 text-base text-teal-800 bg-white p-5 rounded-xl border border-teal-200 shadow-sm leading-relaxed">
+                        (i) Barium Sulphate is an insoluble salt (see solubility rules). Therefore, it must be prepared by <strong>Precipitation (Double Decomposition)</strong>.<br><br>
+                        (ii) Sodium Sulphate is a soluble salt of an alkali metal. Therefore, it must be prepared by <strong>Neutralization of an alkali (Titration)</strong> using Sodium Hydroxide and Sulphuric acid.
+                    </div>
+                </details>
+            </div>
+
+            <!-- Completion -->
+            <div class="bg-slate-800 rounded-3xl p-12 text-center text-white mt-16 shadow-2xl relative overflow-hidden border border-slate-700">
+                <div class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3N2Zz4=')]"></div>
+                <div class="relative z-10 flex flex-col items-center">
+                    <div class="w-24 h-24 bg-amber-400/20 rounded-full flex items-center justify-center mb-6 border border-amber-400/50 shadow-[0_0_30px_rgba(251,191,36,0.3)]">
+                        <i class="ph-fill ph-trophy text-amber-400 text-5xl"></i>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">Masterclass Conquered!</h2>
+                    <p class="text-slate-300 mb-10 max-w-2xl mx-auto text-lg leading-relaxed">Outstanding work, Sambhav. This is the absolute depth of an ICSE textbook. You now have total mastery over ionization mechanisms, gas tests, solubility rules, and complex salt preparations.</p>
+                    <a href="index.html" class="inline-flex justify-center items-center bg-white text-slate-900 font-bold py-4 px-12 rounded-full hover:bg-slate-100 transition-all hover:scale-105 shadow-xl text-lg">
+                        <i class="ph-bold ph-arrow-left mr-2"></i> Return to Chapter Hub
+                    </a>
+                </div>
             </div>
         </section>
 
